@@ -93,6 +93,12 @@
                       "v1/quality",
                       "v1/analytics"
                     ]
+                  },
+                  {
+                    "group": "Task Explanation",
+                    "pages": [
+                      "task1"
+                    ]
                   }
                 ]
               },
@@ -144,6 +150,12 @@
                       "fr/v2/quality",
                       "fr/v2/analytics"
                     ]
+                  },
+                  {
+                    "group": "Explication de la tâche",
+                    "pages": [
+                      "fr/task1"
+                    ]
                   }
                 ]
               },
@@ -188,6 +200,12 @@
                       "fr/v1/inventory",
                       "fr/v1/quality",
                       "fr/v1/analytics"
+                    ]
+                  },
+                  {
+                    "group": "Explication de la tâche",
+                    "pages": [
+                      "fr/task1"
                     ]
                   }
                 ]
