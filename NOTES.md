@@ -1,2 +1,0 @@
-- Provide an AI-enhanced version with enhanced visuals
-- Include a logo

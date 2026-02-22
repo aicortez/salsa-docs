@@ -1,0 +1,47 @@
+---
+title: "Explanation"
+---
+
+## Decision-making
+
+The first thing I wanted to do was make it easier for someone new to navigate the documentation. I think the most important parts about good documentation are easy to find guides and quick access to API documentation so that's what I had in mind. This resulted in my navigation being separated into three main pages:
+
+- Home
+- API Reference
+- Changelog
+
+### Home
+
+This contains the main part of the documentation and it's the first thing the user sees so landing here should let the user find what they came looking for. I decided that that it would be separated into three sub-sections:
+
+- Getting Started
+- Guides
+- Core Features
+
+Getting Started: Explains the user what the service is and how to use it, which is why it includes Pricing, Integrations and Troubleshooting
+
+Guides: Contains all product-specific guides
+
+Core Features: These are the main use-cases for using Salsa as a Service, and are the main features that the app offers so we need to separate them into their own section.
+
+### API Reference
+
+The API documentation always needs its own section and making it a separate tab will let users easily access regardless of which page they're on.
+
+### Changelog
+
+I think it's important to highlight product improvements and bug fixes so having quick access to the changelog allows users to visit the changelog more frequently, making them try out new features, learn about API changes and know when something gets fixed.
+
+## Key Improvements
+
+### Sub-menus
+
+Apart from basic navigation structure I also wanted users to easily navigate sub-sections. One thing that made sense to me was include all integrations into the sidebar so having a dropdown menu with all supported integrations will let users quickly find the integration they need without needing to scroll down within the Integrations page. This also applies to the API Reference and Changelog pages.
+
+### Version and Language Switching
+
+This is pretty self-explanatory. Mintlify already offers a version and language navigation component.
+
+## Trade-Offs
+
+I thought a lot about how to group all the different pages within the main (Home) section. I thought about merging Getting Started and Guides into a single Overview or Getting Started section but decided to split it to make it easy to escale later on.
