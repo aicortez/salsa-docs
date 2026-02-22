@@ -1,47 +1,47 @@
 ---
-title: "Explanation"
+title: "Task 1"
 ---
 
-## Decision-making
+# Decision-making
 
-The first thing I wanted to do was make it easier for someone new to navigate the documentation. I think the most important parts about good documentation are easy to find guides and quick access to API documentation so that's what I had in mind. This resulted in my navigation being separated into three main pages:
+My main goal was to make it easier for someone new to navigate the docs.
 
-- Home
-- API Reference
-- Changelog
+I focused on two things: making the guides easy to find and giving the API documentation a dedicated home. This led me to split the navigation into three main pages:
+
+- **Home**
+- **API Reference**
+- **Changelog**
 
 ### Home
 
-This contains the main part of the documentation and it's the first thing the user sees so landing here should let the user find what they came looking for. I decided that that it would be separated into three sub-sections:
+Since this is the landing page, it needs to be the central spot where users can quickly find what they need. I split it into three sub-sections:
 
-- Getting Started
-- Guides
-- Core Features
-
-Getting Started: Explains the user what the service is and how to use it, which is why it includes Pricing, Integrations and Troubleshooting
-
-Guides: Contains all product-specific guides
-
-Core Features: These are the main use-cases for using Salsa as a Service, and are the main features that the app offers so we need to separate them into their own section.
+- **Getting Started:** Explains what the service is and how to use it, including pricing, integrations, and troubleshooting.
+- **Guides:** A dedicated spot for all product-specific guides.
+- **Core Features:** These are the primary use-cases for "Salsa as a Service." Because these are the main features the app offers, they need their own section to stand out.
 
 ### API Reference
 
-The API documentation always needs its own section and making it a separate tab will let users easily access regardless of which page they're on.
+The API documentation needs its own space. Making it a separate tab ensures users can access it easily, regardless of which page they’re on.
 
 ### Changelog
 
-I think it's important to highlight product improvements and bug fixes so having quick access to the changelog allows users to visit the changelog more frequently, making them try out new features, learn about API changes and know when something gets fixed.
+I think it’s important to highlight product improvements and bug fixes. Giving the changelog its own spot makes it easy for users to check in, try out new features, learn about API changes, and see when things get fixed.
 
 ## Key Improvements
 
-### Sub-menus
+### Easy Navigation
 
-Apart from basic navigation structure I also wanted users to easily navigate sub-sections. One thing that made sense to me was include all integrations into the sidebar so having a dropdown menu with all supported integrations will let users quickly find the integration they need without needing to scroll down within the Integrations page. This also applies to the API Reference and Changelog pages.
+I think this is the most important part of any website, especially documentation. A good documentation structure lets users find what they need faster, and will help them resolve things on their own.
 
 ### Version and Language Switching
 
-This is pretty self-explanatory. Mintlify already offers a version and language navigation component.
+This is pretty standard, but I made sure to include the version and language navigation component that Mintlify offers to keep the docs user-friendly.
 
-## Trade-Offs
+## Trade-Offs & Scaling
 
-I thought a lot about how to group all the different pages within the main (Home) section. I thought about merging Getting Started and Guides into a single Overview or Getting Started section but decided to split it to make it easy to escale later on.
+I spent a lot of time thinking about how to group the pages within the Home section. I debated merging "Getting Started" and "Guides" into one "Overview" page, but I decided to split them so the docs are easier to scale later on.
+
+This turned out to be a good call because it works perfectly for both v1 and v2. As we add more guides, core features, or API endpoints, they’ll naturally fit into these existing sections without making the sidebar feel cluttered.
+
+I also thought about moving the default english pages into an /en folder but I noticed that the documentation mentioned that it was fine to leave the default language pages in the root folder.

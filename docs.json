@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
+  "theme": "maple",
   "name": "Salsa as a Service",
   "colors": {
     "primary": "#16A34A",
@@ -18,7 +18,7 @@
             "tabs": [
               {
                 "tab": "Home",
-                "groups": [
+                "groups": [                  
                   {
                     "group": "Getting Started",
                     "pages": [
@@ -41,6 +41,12 @@
                       "v2/inventory",
                       "v2/quality",
                       "v2/analytics"
+                    ]
+                  },
+                  {
+                    "group": "Task Explanation",
+                    "pages": [
+                      "task1"
                     ]
                   }
                 ]
