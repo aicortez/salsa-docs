@@ -9,15 +9,6 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Task 1",
-          "icon": "list",
-          "pages": "task1"
-        }
-      ]
-    },
     "languages": [
       {
         "language": "en",
