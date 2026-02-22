@@ -18,9 +18,10 @@
             "tabs": [
               {
                 "tab": "Home",
-                "groups": [                  
+                "groups": [
                   {
                     "group": "Getting Started",
+                    "icon": "rocket-launch",
                     "pages": [
                       "v2/index",
                       "v2/getting-started",
@@ -30,6 +31,7 @@
                   },
                   {
                     "group": "Guides",
+                    "icon": "book-open",
                     "pages": [
                       "v2/advanced-usage",
                       "v2/integrations"
@@ -37,6 +39,7 @@
                   },
                   {
                     "group": "Core Features",
+                    "icon": "check-double",
                     "pages": [
                       "v2/inventory",
                       "v2/quality",
@@ -45,6 +48,7 @@
                   },
                   {
                     "group": "Task Explanation",
+                    "icon": "head-side-brain",
                     "pages": [
                       "task1"
                     ]
