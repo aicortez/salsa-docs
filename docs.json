@@ -9,210 +9,210 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
-        "global": {
-          "anchors": [
-            {
-              "anchor": "Task 1",
-              "icon": "list",
-              "href": "/task1"
-            }
-          ]
-        },
-        "languages": [
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Task 1",
+          "icon": "list",
+          "pages": "task1"
+        }
+      ]
+    },
+    "languages": [
+      {
+        "language": "en",
+        "versions": [
           {
-            "language": "en",
-            "versions": [
+            "version": "v2.0",
+            "tabs": [
               {
-                "version": "v2.0",
-                "tabs": [
+                "tab": "Home",
+                "groups": [
                   {
-                    "tab": "Home",
-                    "groups": [
-                      {
-                        "group": "Getting Started",
-                        "pages": [
-                          "v2/index",
-                          "v2/getting-started",
-                          "v2/pricing",
-                          "v2/troubleshooting"
-                        ]
-                      },
-                      {
-                        "group": "Guides",
-                        "pages": [
-                          "v2/advanced-usage",
-                          "v2/integrations"
-                        ]
-                      },
-                      {
-                        "group": "Core Features",
-                        "pages": [
-                          "v2/inventory",
-                          "v2/quality",
-                          "v2/analytics"
-                        ]
-                      }
+                    "group": "Getting Started",
+                    "pages": [
+                      "v2/index",
+                      "v2/getting-started",
+                      "v2/pricing",
+                      "v2/troubleshooting"
                     ]
                   },
                   {
-                    "tab": "API Reference",
+                    "group": "Guides",
                     "pages": [
-                      "v2/api-reference"
+                      "v2/advanced-usage",
+                      "v2/integrations"
                     ]
                   },
                   {
-                    "tab": "Changelog",
+                    "group": "Core Features",
                     "pages": [
-                      "v2/changelog"
+                      "v2/inventory",
+                      "v2/quality",
+                      "v2/analytics"
                     ]
                   }
                 ]
               },
               {
-                "version": "v1.0",
-                "tabs": [
-                  {
-                    "tab": "Home",
-                    "groups": [
-                      {
-                        "group": "Getting Started",
-                        "pages": [
-                          "v1/index",
-                          "v1/getting-started",
-                          "v1/pricing"
-                        ]
-                      },
-                      {
-                        "group": "Guides",
-                        "pages": [
-                          "v1/integrations",
-                          "v1/troubleshooting"
-                        ]
-                      },
-                      {
-                        "group": "Core Features",
-                        "pages": [
-                          "v1/inventory",
-                          "v1/quality",
-                          "v1/analytics"
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "tab": "API Reference",
-                    "pages": [
-                      "v1/api-reference"
-                    ]
-                  },
-                  {
-                    "tab": "Changelog",
-                    "pages": [
-                      "v1/changelog"
-                    ]
-                  }
+                "tab": "API Reference",
+                "pages": [
+                  "v2/api-reference"
+                ]
+              },
+              {
+                "tab": "Changelog",
+                "pages": [
+                  "v2/changelog"
                 ]
               }
             ]
           },
           {
-            "language": "fr",
-            "versions": [
+            "version": "v1.0",
+            "tabs": [
               {
-                "version": "v2.0",
-                "tabs": [
+                "tab": "Home",
+                "groups": [
                   {
-                    "tab": "Accueil",
-                    "groups": [
-                      {
-                        "group": "Prise en main",
-                        "pages": [
-                          "fr/v2/index",
-                          "fr/v2/getting-started",
-                          "fr/v2/pricing",
-                          "fr/v2/troubleshooting"
-                        ]
-                      },
-                      {
-                        "group": "Guides",
-                        "pages": [
-                          "fr/v2/advanced-usage",
-                          "fr/v2/integrations"
-                        ]
-                      },
-                      {
-                        "group": "Fonctionnalités clés",
-                        "pages": [
-                          "fr/v2/inventory",
-                          "fr/v2/quality",
-                          "fr/v2/analytics"
-                        ]
-                      }
+                    "group": "Getting Started",
+                    "pages": [
+                      "v1/index",
+                      "v1/getting-started",
+                      "v1/pricing"
                     ]
                   },
                   {
-                    "tab": "Référence API",
+                    "group": "Guides",
                     "pages": [
-                      "fr/v2/api-reference"
+                      "v1/integrations",
+                      "v1/troubleshooting"
                     ]
                   },
                   {
-                    "tab": "Journal des modifications",
+                    "group": "Core Features",
                     "pages": [
-                      "fr/v2/changelog"
+                      "v1/inventory",
+                      "v1/quality",
+                      "v1/analytics"
                     ]
                   }
                 ]
               },
               {
-                "version": "v1.0",
-                "tabs": [
-                  {
-                    "tab": "Home",
-                    "groups": [
-                      {
-                        "group": "Getting Started",
-                        "pages": [
-                          "fr/v1/index",
-                          "fr/v1/getting-started",
-                          "fr/v1/pricing"
-                        ]
-                      },
-                      {
-                        "group": "Guides",
-                        "pages": [
-                          "fr/v1/integrations",
-                          "fr/v1/troubleshooting"
-                        ]
-                      },
-                      {
-                        "group": "Core Features",
-                        "pages": [
-                          "fr/v1/inventory",
-                          "fr/v1/quality",
-                          "fr/v1/analytics"
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "tab": "API Reference",
-                    "pages": [
-                      "fr/v1/api-reference"
-                    ]
-                  },
-                  {
-                    "tab": "Changelog",
-                    "pages": [
-                      "fr/v1/changelog"
-                    ]
-                  }
+                "tab": "API Reference",
+                "pages": [
+                  "v1/api-reference"
+                ]
+              },
+              {
+                "tab": "Changelog",
+                "pages": [
+                  "v1/changelog"
                 ]
               }
             ]
           }
         ]
       },
+      {
+        "language": "fr",
+        "versions": [
+          {
+            "version": "v2.0",
+            "tabs": [
+              {
+                "tab": "Accueil",
+                "groups": [
+                  {
+                    "group": "Prise en main",
+                    "pages": [
+                      "fr/v2/index",
+                      "fr/v2/getting-started",
+                      "fr/v2/pricing",
+                      "fr/v2/troubleshooting"
+                    ]
+                  },
+                  {
+                    "group": "Guides",
+                    "pages": [
+                      "fr/v2/advanced-usage",
+                      "fr/v2/integrations"
+                    ]
+                  },
+                  {
+                    "group": "Fonctionnalités clés",
+                    "pages": [
+                      "fr/v2/inventory",
+                      "fr/v2/quality",
+                      "fr/v2/analytics"
+                    ]
+                  }
+                ]
+              },
+              {
+                "tab": "Référence API",
+                "pages": [
+                  "fr/v2/api-reference"
+                ]
+              },
+              {
+                "tab": "Journal des modifications",
+                "pages": [
+                  "fr/v2/changelog"
+                ]
+              }
+            ]
+          },
+          {
+            "version": "v1.0",
+            "tabs": [
+              {
+                "tab": "Home",
+                "groups": [
+                  {
+                    "group": "Getting Started",
+                    "pages": [
+                      "fr/v1/index",
+                      "fr/v1/getting-started",
+                      "fr/v1/pricing"
+                    ]
+                  },
+                  {
+                    "group": "Guides",
+                    "pages": [
+                      "fr/v1/integrations",
+                      "fr/v1/troubleshooting"
+                    ]
+                  },
+                  {
+                    "group": "Core Features",
+                    "pages": [
+                      "fr/v1/inventory",
+                      "fr/v1/quality",
+                      "fr/v1/analytics"
+                    ]
+                  }
+                ]
+              },
+              {
+                "tab": "API Reference",
+                "pages": [
+                  "fr/v1/api-reference"
+                ]
+              },
+              {
+                "tab": "Changelog",
+                "pages": [
+                  "fr/v1/changelog"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
   "logo": {
     "light": "/logo/light.svg",
     "dark": "/logo/dark.svg"
