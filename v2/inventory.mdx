@@ -1,0 +1,126 @@
+---
+title: "Inventory Management - v2.0"
+description: "AI-powered inventory tracking with IoT sensors and predictive analytics"
+---
+
+# Inventory Management - v2.0
+
+Track salsa ingredients with AI-powered predictions and real-time IoT sensor monitoring.
+
+## Overview
+
+Our v2.0 inventory management system uses artificial intelligence and IoT sensors to provide intelligent tracking, predictive ordering, and automated waste prevention.
+
+## Key Features
+
+### AI-Powered Tracking
+
+Monitor your ingredient levels with intelligent predictions:
+
+- **Predictive stock levels**: AI forecasts when you'll run out
+- **Automated reordering**: Smart ordering based on usage patterns
+- **Usage predictions**: Machine learning predicts ingredient needs
+- **Anomaly detection**: AI identifies unusual consumption patterns
+
+```javascript
+// Example: Get AI inventory predictions
+const predictions = await salsa.ai.inventory.predict({
+  location: "kitchen_1",
+  horizon_days: 7
+});
+
+console.log(`Predicted reorder date: ${predictions.reorder_date}`);
+```
+
+### IoT Sensor Integration
+
+Real-time monitoring with connected sensors:
+
+- **RFID tracking**: Automatic ingredient scanning
+- **Temperature sensors**: Monitor refrigeration conditions
+- **Weight sensors**: Real-time stock level tracking
+- **Freshness sensors**: Chemical sensors detect spoilage
+
+### Smart Waste Prevention
+
+AI-driven waste reduction:
+
+- Predicts optimal order quantities
+- Suggests recipes to use near-expiry ingredients
+- Identifies waste patterns and root causes
+- Reduces waste by up to 60% compared to v1.0
+
+## Stock Management
+
+### AI-Powered Low Stock Alerts
+
+Intelligent alerts that learn from your patterns:
+
+- Predictive alerts before you run out
+- Seasonal adjustment recommendations
+- Event-based usage predictions
+- Supplier lead time optimization
+
+> **Note:**
+**New in v2.0**: AI learns your usage patterns and automatically adjusts alert thresholds based on historical data and upcoming events.
+
+
+### Automated Supplier Integration
+
+Seamless ordering with AI optimization:
+
+- Automatic purchase order generation
+- Price comparison across suppliers
+- Quality-based supplier recommendations
+- Delivery schedule optimization
+
+## IoT Dashboard
+
+Real-time sensor monitoring:
+
+- Live temperature readings
+- RFID location tracking
+- Weight-based inventory levels
+- Freshness indicators
+
+## AI Insights
+
+### Usage Pattern Analysis
+
+AI identifies trends and patterns:
+
+- Peak usage times by day/season
+- Recipe popularity trends
+- Waste hotspots
+- Cost optimization opportunities
+
+### Predictive Ordering
+
+Let AI handle your ordering:
+
+```javascript
+// Example: Enable AI auto-ordering
+const autoOrder = await salsa.ai.inventory.enableAutoOrder({
+  location: "kitchen_1",
+  max_order_value: 5000,
+  approval_required_over: 1000,
+  preferred_suppliers: ["sysco", "us_foods"]
+});
+```
+
+## Getting Started
+
+
+1. **Connect IoT Sensors**
+   Install RFID tags and temperature sensors in your storage areas.
+
+2. **Enable AI Features**
+   Activate AI predictions and import 90 days of historical data.
+
+3. **Configure Auto-Ordering**
+   Set up automated ordering rules and supplier preferences.
+
+4. **Monitor & Optimize**
+   Let AI learn from your patterns and optimize over time.
+
+

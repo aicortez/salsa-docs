@@ -1,0 +1,366 @@
+---
+title: "Troubleshooting"
+description: "Common issues and solutions for Salsa as a Service"
+---
+
+# Troubleshooting Guide
+
+This guide helps you resolve common issues with Salsa as a Service. If you can't find a solution here, our support team is ready to help.
+
+## Quick Diagnostics
+
+Before diving into specific issues, run these quick checks:
+
+
+1. **Check System Status**
+   Visit our [status page](https://status.salsaasaservice.com) to see if there are any ongoing service issues.
+
+2. **Verify Internet Connection**
+   Ensure you have a stable internet connection and can access other websites.
+
+3. **Clear Browser Cache**
+   Clear your browser cache and cookies, then try logging in again.
+
+4. **Check Browser Compatibility**
+   Ensure you're using a supported browser (Chrome, Firefox, Safari, Edge).
+
+
+
+## Common Issues
+
+### Login and Authentication
+
+
+**[Can't Log In](#login-issues)**  
+Troubleshoot login issues and password problems.
+
+**[Two-Factor Authentication](#two-factor-auth)**  
+Issues with 2FA setup and authentication codes.
+
+**[Account Locked](#account-locked)**  
+Resolve account lockouts and security issues.
+
+
+
+#### Login Issues 
+
+**Problem**: Unable to log into your account
+
+**Solutions:**
+
+
+1. **Verify Credentials**
+   Double-check your email address and password. Ensure Caps Lock is off.
+
+2. **Reset Password**
+   Use the "Forgot Password" link on the login page to reset your password.
+
+3. **Check Email**
+   Look for account verification emails in your spam folder.
+
+4. **Contact Support**
+   If the issue persists, contact support with your account email address.
+
+
+
+> **Warning:**
+**Security Note**: Never share your password with anyone. Our support team will never ask for your password.
+
+
+#### Two-Factor Authentication 
+
+**Problem**: Issues with 2FA codes or setup
+
+**Solutions:**
+
+1. **Code Not Working**: Ensure your device's time is synchronized
+2. **Lost Device**: Use backup codes or contact support
+3. **App Issues**: Try a different authenticator app (Google Authenticator, Authy)
+4. **Setup Problems**: Follow our [2FA setup guide](/guides/two-factor-auth)
+
+### Data Synchronization
+
+#### POS Integration Issues
+
+**Problem**: POS data not syncing with Salsa as a Service
+
+
+#### Square
+
+1. **Check Square Connection**
+   Verify the Square integration is still connected in your dashboard.
+
+2. **Reauthorize Integration**
+   Disconnect and reconnect your Square account.
+
+3. **Check API Permissions**
+   Ensure Square API permissions include inventory management.
+
+#### Toast
+
+1. **Verify Toast API Key**
+   Check that your Toast API credentials are valid and not expired.
+
+2. **Check Menu Mapping**
+   Ensure salsa menu items are properly mapped to inventory items.
+
+#### Clover
+
+1. **Update Clover App**
+   Ensure the Salsa as a Service app is updated in your Clover dashboard.
+
+2. **Check Permissions**
+   Verify the app has necessary permissions for data access.
+
+#### General
+
+1. **Check Network Connection**
+   Ensure stable internet connection for both systems.
+
+2. **Review Sync Logs**
+   Check the integration logs for error messages.
+
+3. **Test Manual Sync**
+   Try manually triggering a data sync from your dashboard.
+
+
+
+#### Inventory Sync Problems
+
+**Problem**: Inventory levels not updating correctly
+
+**Common Causes:**
+- Network connectivity issues
+- API rate limiting
+- Incorrect unit conversions
+- Data validation errors
+
+**Solutions:**
+
+
+1. **Check Sync Status**
+   Navigate to **Settings > Integrations** and check the sync status.
+
+2. **Manual Sync**
+   Try manually syncing inventory data from the integrations page.
+
+3. **Review Error Logs**
+   Check the error logs for specific sync failures.
+
+4. **Contact Support**
+   If issues persist, contact support with your sync logs.
+
+
+
+### Production Issues
+
+#### Quality Control Problems
+
+**Problem**: Quality scores not recording correctly
+
+**Solutions:**
+
+1. **Check Device Calibration**: Ensure quality testing devices are properly calibrated
+2. **Review Testing Procedures**: Verify staff are following correct testing protocols
+3. **Update Software**: Ensure the mobile app is updated to the latest version
+4. **Check Permissions**: Verify staff have proper permissions for quality testing
+
+#### Batch Tracking Issues
+
+**Problem**: Production batches not tracking properly
+
+> **Note:**
+**Batch Requirements**: Each batch must have a unique batch number and valid recipe assignment.
+
+
+**Troubleshooting Steps:**
+
+
+1. **Verify Batch Data**
+   Check that all required batch information is entered correctly.
+
+2. **Check Recipe Assignment**
+   Ensure the batch is assigned to a valid recipe.
+
+3. **Review Staff Permissions**
+   Verify the assigned chef has proper permissions for batch management.
+
+
+
+### Mobile App Issues
+
+#### App Crashes
+
+**Problem**: Mobile app crashes or freezes
+
+**Solutions:**
+
+
+1. **Update App**
+   Ensure you're running the latest version of the Salsa as a Service mobile app.
+
+2. **Restart App**
+   Force close the app and restart it.
+
+3. **Clear App Data**
+   Clear app cache and data (you'll need to log in again).
+
+4. **Reinstall App**
+   Uninstall and reinstall the app from your device's app store.
+
+
+
+#### Offline Mode Issues
+
+**Problem**: App not working in offline mode
+
+**Solutions:**
+
+1. **Check Offline Data**: Ensure critical data is downloaded for offline use
+2. **Sync Before Going Offline**: Manually sync data before losing internet connection
+3. **Check Storage Space**: Ensure sufficient device storage for offline data
+4. **Update App**: Use the latest app version with improved offline capabilities
+
+### Performance Issues
+
+#### Slow Loading Times
+
+**Problem**: Dashboard or app loading slowly
+
+**Solutions:**
+
+
+**[Browser Issues](#browser-performance)**  
+Clear cache, disable extensions, try different browser.
+
+**[Network Issues](#network-performance)**  
+Check internet speed, try different network.
+
+**[Data Issues](#data-performance)**  
+Reduce data load, optimize queries.
+
+
+
+#### Browser Performance 
+
+
+1. **Clear Browser Cache**
+   Clear cookies, cache, and browsing data.
+
+2. **Disable Extensions**
+   Temporarily disable browser extensions to identify conflicts.
+
+3. **Try Different Browser**
+   Test with a different browser to isolate the issue.
+
+4. **Update Browser**
+   Ensure you're using the latest browser version.
+
+
+
+## Advanced Troubleshooting
+
+### API Integration Issues
+
+#### Authentication Errors
+
+**Problem**: API requests returning 401 Unauthorized
+
+**Solutions:**
+
+1. **Check API Key**: Verify the API key is correct and not expired
+2. **Check Permissions**: Ensure the API key has necessary permissions
+3. **Check Rate Limits**: Verify you haven't exceeded rate limits
+4. **Check Request Format**: Ensure requests are properly formatted
+
+#### Data Format Issues
+
+**Problem**: API requests failing due to data format errors
+
+**Common Issues:**
+- Incorrect date formats
+- Invalid data types
+- Missing required fields
+- Invalid JSON syntax
+
+**Solutions:**
+
+```javascript
+// Example: Proper API request format
+const requestData = {
+  name: "House Salsa",
+  category: "salsa",
+  batch_size: 5.0,  // Use numbers, not strings
+  production_date: "2024-01-15T08:00:00Z",  // ISO 8601 format
+  ingredients: [
+    {
+      ingredient_id: "ing_123",
+      quantity: 2.0,
+      unit: "lbs"
+    }
+  ]
+};
+```
+
+### Database Issues
+
+#### Data Inconsistencies
+
+**Problem**: Data not matching between systems
+
+**Solutions:**
+
+1. **Check Sync Logs**: Review integration logs for sync errors
+2. **Manual Data Verification**: Compare data between systems manually
+3. **Reset Integration**: Disconnect and reconnect integrations
+4. **Contact Support**: Provide specific examples of data inconsistencies
+
+## Getting Help
+
+### Self-Service Resources
+
+
+**[Knowledge Base](https://help.salsaasaservice.com)**  
+Search our comprehensive knowledge base for solutions.
+
+**[Video Tutorials](https://salsaasaservice.com/tutorials)**  
+Watch step-by-step video guides for common tasks.
+
+**[Community Forum](https://community.salsaasaservice.com)**  
+Get help from other users and share solutions.
+
+
+
+### Contact Support
+
+When contacting support, please include:
+
+1. **Account Information**: Your account email and restaurant name
+2. **Issue Description**: Detailed description of the problem
+3. **Steps Taken**: What troubleshooting steps you've already tried
+4. **Error Messages**: Any error messages or codes you're seeing
+5. **Screenshots**: Screenshots of the issue (if applicable)
+6. **Browser/Device Info**: Browser version and device information
+
+**Support Channels:**
+
+- 📧 **Email**: support@salsaasaservice.com
+- 💬 **Live Chat**: Available in your dashboard
+- 📞 **Phone**: 1-800-SALSA-HELP (Mon-Fri, 9 AM - 6 PM EST)
+- 🎫 **Support Ticket**: Create a ticket in your dashboard
+
+> **Note:**
+**Response Times**: We typically respond to support requests within 2-4 hours during business hours.
+
+
+### Emergency Support
+
+For critical issues affecting your restaurant operations:
+
+- 🚨 **Emergency Hotline**: 1-800-SALSA-911
+- 📱 **Text Support**: Text "HELP" to SALSA-911
+- 💬 **Priority Chat**: Available for Enterprise customers
+
+> **Warning:**
+**Emergency Support**: Available 24/7 for Enterprise customers. Standard support hours apply for other plans.
+

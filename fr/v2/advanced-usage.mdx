@@ -1,0 +1,201 @@
+---
+title: "Utilisation avancée"
+description: "Maîtrisez les prévisions IA, surveillance IoT, automatisation et fonctionnalités d'entreprise dans v2.0"
+---
+
+# Guide d'utilisation avancée
+
+Libérez tout le potentiel de Salsa as a Service v2.0 avec les fonctionnalités alimentées par IA, intégration IoT, automatisation avancée et capacités d'entreprise.
+
+## Prévision de demande alimentée par IA
+
+### Comprendre le moteur de prévision
+
+Le moteur de prévision IA de v2.0 utilise plusieurs modèles d'apprentissage automatique pour prédire la demande de salsa avec une précision de pointe :
+
+
+
+
+### Configuration de prévisions avancées
+
+
+1. **Sélectionner l'horizon de prévision**
+   Choisissez votre fenêtre de prévision :
+    - **Court terme (7 jours)** : Planification de production quotidienne
+    - **Moyen terme (14 jours)** : Commande d'ingrédients et planification du personnel
+    - **Long terme (30+ jours)** : Planification stratégique
+
+2. **Configurer les sources de données**
+   Connectez des sources supplémentaires pour améliorer la précision :
+    - Ventes POS
+    - Réservations
+    - API météo
+    - Événements locaux
+    - Trafic piétonnier
+
+3. **Définir les seuils d'alerte**
+   Configurez les alertes pour les changements de prévision significatifs.
+
+
+
+### Interpréter les résultats de prévision
+
+L'IA fournit des données de prévision riches avec intervalles de confiance :
+
+```json
+{
+  "forecast_date": "2024-01-20",
+  "predicted_demand": {
+    "house_salsa": {
+      "quantity": 12.5,
+      "unit": "gallons",
+      "confidence_interval": [11.2, 13.8],
+      "confidence_level": 0.95
+    }
+  },
+  "factors": {
+    "historical_trend": "+15%",
+    "day_of_week": "Vendredi (+20%)",
+    "weather": "Ensoleillé, 22°C (+5%)",
+    "local_events": ["Concert à 0,8km (+10%)"]
+  }
+}
+```
+
+## Intégration de capteurs IoT
+
+### Types et capacités de capteurs
+
+
+
+
+### Tableau de bord de surveillance en temps réel
+
+Accédez aux données complètes des capteurs en temps réel :
+
+```python
+# Exemple : Interroger les données de capteurs via API
+from salsa_sdk import SalsaClient
+
+client = SalsaClient(api_key="votre_cle_api")
+
+# Obtenir les lectures en temps réel
+sensors = client.iot.get_sensors(location="cuisine_1")
+for sensor in sensors:
+    reading = sensor.get_latest_reading()
+    print(f"{sensor.name}: {reading.value} {reading.unit}")
+
+    if reading.is_anomaly():
+        print(f"⚠️  Alerte: {reading.anomaly_details}")
+```
+
+### Maintenance prédictive
+
+L'IA analyse les modèles de capteurs pour prédire les défaillances d'équipement avant qu'elles ne se produisent :
+
+- Prédiction de défaillance 3-14 jours à l'avance
+- Précision de 85%
+- Alertes automatiques avec actions recommandées
+
+## Automatisation avancée
+
+### Réapprovisionnement automatisé
+
+Laissez l'IA gérer automatiquement votre inventaire d'ingrédients :
+
+```javascript
+const autoOrderConfig = {
+  enabled: true,
+  suppliers: ["sysco", "us_foods"],
+  rules: {
+    reorder_trigger: "forecast_based",
+    lead_time_buffer: 2,  // jours
+    safety_stock_level: 1.5,
+    max_order_frequency: "daily"
+  },
+  approval_workflow: {
+    auto_approve_under: 1000,
+    require_approval_over: 1000
+  }
+};
+```
+
+### Planification de production intelligente
+
+L'IA optimise les horaires de production pour une efficacité maximale :
+
+
+
+
+## Fonctionnalités d'entreprise
+
+### Gestion multi-emplacements
+
+Gérez les chaînes de restaurants de toute taille avec contrôle centralisé :
+
+
+#### Tableau de bord centralisé
+
+- Voir tous les emplacements sur un seul tableau de bord
+    - Comparer les performances entre emplacements
+    - Identifier les meilleurs et moins performants
+    - Partager les meilleures pratiques
+
+#### Groupes d'emplacements
+
+- Organiser les emplacements en régions ou marques
+    - Appliquer des politiques au niveau du groupe
+    - Exécuter des rapports régionaux
+    - Gérer des opérations en masse
+
+#### Distribution de recettes
+
+- Maintenir la cohérence des recettes
+    - Pousser les mises à jour vers des emplacements sélectionnés
+    - Permettre des modifications spécifiques par emplacement
+    - Suivre l'historique des versions
+
+
+
+### RBAC avancé (contrôle d'accès basé sur les rôles)
+
+Gestion des permissions granulaires pour la sécurité d'entreprise :
+
+```yaml
+# Exemple : Définition de rôle personnalisé
+role_name: "Gestionnaire qualité régional"
+permissions:
+  locations:
+    access_level: "region"
+    regions: ["sud-ouest", "cote_ouest"]
+
+  quality_control:
+    view: true
+    create: true
+    approve: true
+    delete: false
+
+  production:
+    view: true
+    create: false
+    manage: false
+```
+
+### Conformité et audit
+
+
+
+
+## Besoin d'aide ?
+
+Les fonctionnalités avancées nécessitent un support avancé :
+
+- 📚 **Documentation entreprise** : Guides complets pour fonctionnalités d'entreprise
+- 👨‍💼 **Gestionnaire de compte dédié** : Contact personnel pour clients entreprise
+- 🛠️ **Services professionnels** : Développement et intégration personnalisés
+- 🎓 **Programmes de formation** : Formation sur site et virtuelle
+- 📞 **Support 24/7** : Support entreprise disponible 24h/24
+
+> **Note:**
+**Support entreprise** : Toutes les fonctionnalités avancées incluent un support prioritaire avec SLA de réponse d'1 heure pour les problèmes critiques.
+

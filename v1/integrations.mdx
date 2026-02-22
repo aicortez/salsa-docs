@@ -1,0 +1,334 @@
+---
+title: "Integrations"
+description: "Connect Salsa as a Service with your existing restaurant management tools and systems"
+---
+
+# Integrations
+
+Salsa as a Service integrates seamlessly with your existing restaurant technology stack to provide a unified salsa management experience.
+
+## Popular Integrations
+
+
+**[POS Systems](#pos-systems)**  
+Connect with Square, Toast, Clover, and other major POS systems.
+
+**[Kitchen Management](#kitchen-management)**  
+Integrate with Kitchen Display Systems and order management platforms.
+
+**[Inventory Management](#inventory-management)**  
+Sync with existing inventory and supply chain management systems.
+
+**[Analytics Platforms](#analytics-platforms)**  
+Connect with business intelligence and reporting tools.
+
+
+
+## POS Systems 
+
+Connect your point-of-sale system to automatically track salsa sales and inventory usage.
+
+### Square Integration
+
+
+1. **Enable Square Integration**
+   Navigate to **Integrations > POS Systems** in your dashboard.
+
+2. **Connect Your Square Account**
+   Click "Connect Square" and authorize the integration with your Square credentials.
+
+3. **Map Menu Items**
+   Map your salsa menu items to corresponding inventory items in Salsa as a Service.
+
+4. **Test the Connection**
+   Process a test transaction to verify the integration is working correctly.
+
+
+
+**Features:**
+- Automatic sales tracking
+- Real-time inventory updates
+- Customer order analytics
+- Revenue reporting
+
+> **Note:**
+**Square API Requirements**: Ensure your Square account has API access enabled and the necessary permissions for inventory management.
+
+
+### Toast Integration
+
+Toast POS integration provides advanced features for full-service restaurants:
+
+**Setup Process:**
+
+1. **API Configuration**: Configure your Toast API credentials
+2. **Menu Synchronization**: Sync your salsa menu items
+3. **Inventory Mapping**: Map Toast inventory to Salsa as a Service items
+4. **Real-time Sync**: Enable real-time data synchronization
+
+**Advanced Features:**
+- Multi-location support
+- Staff performance tracking
+- Customer preference analytics
+- Automated reordering
+
+### Clover Integration
+
+Connect with Clover POS for comprehensive restaurant management:
+
+
+#### Basic Setup
+
+- Install the Salsa as a Service app from the Clover App Market
+    - Configure API permissions
+    - Set up menu item mapping
+    - Test the integration
+
+#### Advanced Features
+
+- Multi-device synchronization
+    - Offline mode support
+    - Custom reporting
+    - Staff training modules
+
+#### Troubleshooting
+
+- Check API credentials
+    - Verify network connectivity
+    - Review sync logs
+    - Contact support if issues persist
+
+
+
+## Kitchen Management 
+
+### Kitchen Display Systems (KDS)
+
+Integrate with popular KDS platforms to streamline salsa production workflows:
+
+
+**[Toast Kitchen](/guides/toast-kitchen)**  
+Seamless integration with Toast's kitchen display system for order management.
+
+**[Square Kitchen](/guides/square-kitchen)**  
+Connect with Square's kitchen management tools for efficient order processing.
+
+**[Custom KDS](/guides/custom-kds)**  
+API integration for custom kitchen display systems and proprietary solutions.
+
+
+
+### Order Management Platforms
+
+**Grubhub Integration:**
+
+```javascript
+// Example: Sending salsa order data to Grubhub
+const salsaOrder = {
+  orderId: "GH_12345",
+  items: [
+    {
+      name: "House Salsa",
+      quantity: 2,
+      spiceLevel: "medium",
+      specialInstructions: "extra cilantro"
+    }
+  ],
+  customerPreferences: {
+    spiceTolerance: "medium",
+    allergies: ["nuts"]
+  }
+};
+
+// Send to Salsa as a Service API
+await salsaAPI.createOrder(salsaOrder);
+```
+
+**DoorDash Integration:**
+
+- Real-time order tracking
+- Customer preference learning
+- Quality feedback integration
+- Delivery optimization
+
+## Inventory Management
+
+### Supply Chain Integration
+
+Connect with your suppliers and distributors for automated inventory management:
+
+**Supported Platforms:**
+- Sysco
+- US Foods
+- Local distributors
+- Specialty food suppliers
+
+**Features:**
+- Automated reordering
+- Price comparison
+- Supplier performance tracking
+- Quality score integration
+
+### ERP Systems
+
+Integrate with enterprise resource planning systems:
+
+
+**[SAP Integration](/guides/sap-integration)**  
+Connect with SAP for enterprise-level inventory and financial management.
+
+**[Oracle NetSuite](/guides/oracle-netsuite)**  
+Sync with Oracle NetSuite for comprehensive business management.
+
+**[Microsoft Dynamics](/guides/microsoft-dynamics)**  
+Integrate with Microsoft Dynamics for unified business operations.
+
+
+
+## Analytics Platforms 
+
+### Business Intelligence Tools
+
+Connect with popular BI platforms for advanced analytics:
+
+**Tableau Integration:**
+
+```sql
+-- Example: Custom Tableau query for salsa analytics
+SELECT 
+  recipe_name,
+  production_date,
+  quality_score,
+  waste_percentage,
+  customer_satisfaction
+FROM salsa_production_data
+WHERE production_date >= '2024-01-01'
+ORDER BY quality_score DESC;
+```
+
+**Power BI Integration:**
+
+- Real-time dashboards
+- Custom visualizations
+- Automated reporting
+- Data export capabilities
+
+### Google Analytics
+
+Track salsa-related metrics in Google Analytics:
+
+1. **Event Tracking**: Set up custom events for salsa production
+2. **Goal Configuration**: Define goals for quality metrics
+3. **Custom Dimensions**: Track recipe performance
+4. **Segmentation**: Analyze customer preferences
+
+## Custom Integrations
+
+### Webhook Configuration
+
+Set up webhooks for real-time data synchronization:
+
+```javascript
+// Example webhook handler
+app.post('/webhooks/salsa', (req, res) => {
+  const { event, data } = req.body;
+  
+  switch (event) {
+    case 'production.batch_completed':
+      updateKitchenDisplay(data);
+      break;
+    case 'inventory.low_stock':
+      sendAlertToManager(data);
+      break;
+    case 'quality.alert':
+      notifyQualityTeam(data);
+      break;
+  }
+  
+  res.status(200).send('OK');
+});
+```
+
+### API Integration
+
+Build custom integrations using our REST API:
+
+**Authentication:**
+```bash
+curl -H "Authorization: Bearer YOUR_API_KEY" \
+     https://api.salsaasaservice.com/v1/recipes
+```
+
+**Rate Limiting:**
+- Free Plan: 1,000 requests/hour
+- Professional: 10,000 requests/hour
+- Enterprise: 100,000 requests/hour
+
+## Integration Testing
+
+### Sandbox Environment
+
+Test your integrations in our sandbox environment:
+
+**Sandbox URL:**
+```
+https://api-sandbox.salsaasaservice.com/v1
+```
+
+**Test Data:**
+- Sample recipes and ingredients
+- Mock production data
+- Simulated POS transactions
+- Test webhook endpoints
+
+### Testing Checklist
+
+
+1. **Authentication Test**
+   Verify API key authentication and permissions.
+
+2. **Data Sync Test**
+   Test data synchronization between systems.
+
+3. **Error Handling Test**
+   Test error scenarios and recovery mechanisms.
+
+4. **Performance Test**
+   Test integration performance under load.
+
+
+
+## Troubleshooting
+
+### Common Integration Issues
+
+> **Warning:**
+**API Rate Limits**: If you're hitting rate limits, consider implementing exponential backoff or upgrading your plan.
+
+
+**Authentication Errors:**
+- Verify API key is correct
+- Check key permissions
+- Ensure key hasn't expired
+
+**Data Sync Issues:**
+- Check network connectivity
+- Verify webhook endpoints
+- Review sync logs
+- Test with sandbox environment
+
+**Performance Issues:**
+- Monitor API response times
+- Check for rate limiting
+- Optimize request frequency
+- Consider caching strategies
+
+## Support
+
+Need help with integrations?
+
+- 📧 **Integration Support**: integrations@salsaasaservice.com
+- 📚 **Developer Documentation**: Comprehensive guides and examples
+- 💬 **Developer Community**: Join our Discord for peer support
+- 🎥 **Video Tutorials**: Step-by-step integration videos
+- 🔧 **Custom Integration Services**: Professional integration assistance

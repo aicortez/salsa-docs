@@ -1,0 +1,424 @@
+---
+title: "API Reference"
+description: "Complete API documentation for integrating with Salsa as a Service"
+---
+
+# Salsa as a Service API
+
+The Salsa as a Service API allows you to integrate salsa management capabilities into your existing restaurant management systems, POS systems, and custom applications.
+
+## Base URL
+
+```
+https://api.salsaasaservice.com/v1
+```
+
+## Authentication
+
+All API requests require authentication using your API key.
+
+> **Note:**
+**API Key**: Get your API key from the [Developer Settings](https://app.salsaasaservice.com/settings/api) in your dashboard.
+
+
+### Authentication Header
+
+Include your API key in the Authorization header:
+
+```http
+Authorization: Bearer YOUR_API_KEY
+```
+
+## Rate Limits
+
+- **Free Plan**: 1,000 requests per hour
+- **Professional Plan**: 10,000 requests per hour  
+- **Enterprise Plan**: 100,000 requests per hour
+
+Rate limit headers are included in all responses:
+
+```http
+X-RateLimit-Limit: 1000
+X-RateLimit-Remaining: 999
+X-RateLimit-Reset: 1640995200
+```
+
+## Core Endpoints
+
+
+**[Inventory Management](#inventory)**  
+Manage salsa ingredients, track stock levels, and monitor freshness.
+
+**[Recipe Management](#recipes)**  
+Create, update, and manage salsa recipes and production workflows.
+
+**[Production Tracking](#production)**  
+Track salsa production batches, quality metrics, and yield data.
+
+**[Analytics & Reporting](#analytics)**  
+Access detailed analytics and generate custom reports.
+
+
+
+## Inventory Management 
+
+### Get All Ingredients
+
+Retrieve a list of all ingredients in your inventory.
+
+```http
+GET /ingredients
+```
+
+**Response:**
+
+```json
+{
+  "data": [
+    {
+      "id": "ing_123",
+      "name": "Roma Tomatoes",
+      "category": "vegetables",
+      "current_stock": 25.5,
+      "unit": "lbs",
+      "supplier": "Fresh Farms Co.",
+      "last_updated": "2024-01-15T10:30:00Z",
+      "expiry_date": "2024-01-20T00:00:00Z",
+      "quality_score": 8.5
+    }
+  ],
+  "pagination": {
+    "page": 1,
+    "per_page": 50,
+    "total": 1
+  }
+}
+```
+
+### Update Ingredient Stock
+
+Update the stock level for a specific ingredient.
+
+```http
+PUT /ingredients/{ingredient_id}/stock
+```
+
+**Request Body:**
+
+```json
+{
+  "quantity": 30.0,
+  "unit": "lbs",
+  "notes": "New shipment received"
+}
+```
+
+**Response:**
+
+```json
+{
+  "id": "ing_123",
+  "name": "Roma Tomatoes",
+  "current_stock": 30.0,
+  "unit": "lbs",
+  "updated_at": "2024-01-15T11:00:00Z"
+}
+```
+
+### Add New Ingredient
+
+Add a new ingredient to your inventory.
+
+```http
+POST /ingredients
+```
+
+**Request Body:**
+
+```json
+{
+  "name": "Jalapeño Peppers",
+  "category": "vegetables",
+  "initial_stock": 5.0,
+  "unit": "lbs",
+  "supplier": "Spice Garden",
+  "expiry_date": "2024-01-25T00:00:00Z"
+}
+```
+
+## Recipe Management 
+
+### Get All Recipes
+
+Retrieve all salsa recipes in your account.
+
+```http
+GET /recipes
+```
+
+**Response:**
+
+```json
+{
+  "data": [
+    {
+      "id": "rec_456",
+      "name": "House Salsa",
+      "description": "Our signature medium-spice salsa",
+      "spice_level": "medium",
+      "batch_size": 5.0,
+      "yield": "gallons",
+      "prep_time": 30,
+      "ingredients": [
+        {
+          "ingredient_id": "ing_123",
+          "name": "Roma Tomatoes",
+          "quantity": 2.0,
+          "unit": "lbs"
+        }
+      ],
+      "created_at": "2024-01-10T09:00:00Z",
+      "updated_at": "2024-01-15T14:30:00Z"
+    }
+  ]
+}
+```
+
+### Create New Recipe
+
+Create a new salsa recipe.
+
+```http
+POST /recipes
+```
+
+**Request Body:**
+
+```json
+{
+  "name": "Spicy Chipotle Salsa",
+  "description": "Smoky and spicy chipotle-based salsa",
+  "spice_level": "hot",
+  "batch_size": 3.0,
+  "yield": "gallons",
+  "prep_time": 45,
+  "ingredients": [
+    {
+      "ingredient_id": "ing_789",
+      "quantity": 1.5,
+      "unit": "lbs"
+    }
+  ]
+}
+```
+
+### Update Recipe
+
+Update an existing recipe.
+
+```http
+PUT /recipes/{recipe_id}
+```
+
+## Production Tracking 
+
+### Start Production Batch
+
+Begin tracking a new salsa production batch.
+
+```http
+POST /production/batches
+```
+
+**Request Body:**
+
+```json
+{
+  "recipe_id": "rec_456",
+  "batch_number": "BATCH-2024-001",
+  "planned_quantity": 5.0,
+  "production_date": "2024-01-15T08:00:00Z",
+  "assigned_chef": "chef_123"
+}
+```
+
+**Response:**
+
+```json
+{
+  "id": "batch_789",
+  "recipe_id": "rec_456",
+  "batch_number": "BATCH-2024-001",
+  "status": "in_progress",
+  "started_at": "2024-01-15T08:00:00Z",
+  "assigned_chef": "chef_123"
+}
+```
+
+### Complete Production Batch
+
+Mark a production batch as completed with quality metrics.
+
+```http
+PUT /production/batches/{batch_id}/complete
+```
+
+**Request Body:**
+
+```json
+{
+  "actual_quantity": 4.8,
+  "quality_score": 9.2,
+  "notes": "Excellent batch, perfect consistency",
+  "completed_at": "2024-01-15T09:30:00Z"
+}
+```
+
+### Get Production History
+
+Retrieve production history with filtering options.
+
+```http
+GET /production/batches?start_date=2024-01-01&end_date=2024-01-31&recipe_id=rec_456
+```
+
+## Analytics & Reporting 
+
+### Get Production Analytics
+
+Retrieve analytics data for salsa production.
+
+```http
+GET /analytics/production?period=30d&recipe_id=rec_456
+```
+
+**Response:**
+
+```json
+{
+  "period": "30d",
+  "total_batches": 45,
+  "total_quantity": 225.0,
+  "average_quality_score": 8.7,
+  "waste_percentage": 2.3,
+  "top_performing_recipes": [
+    {
+      "recipe_id": "rec_456",
+      "name": "House Salsa",
+      "batches": 30,
+      "avg_quality": 9.1
+    }
+  ]
+}
+```
+
+### Get Inventory Analytics
+
+Get insights into inventory usage and optimization opportunities.
+
+```http
+GET /analytics/inventory?period=7d
+```
+
+## Error Handling
+
+The API uses standard HTTP status codes and returns detailed error information.
+
+### Error Response Format
+
+```json
+{
+  "error": {
+    "code": "INVALID_REQUEST",
+    "message": "The request body is missing required fields",
+    "details": {
+      "missing_fields": ["name", "category"]
+    }
+  }
+}
+```
+
+### Common Error Codes
+
+
+#### Client Errors
+
+- `400 Bad Request` - Invalid request data
+    - `401 Unauthorized` - Missing or invalid API key
+    - `403 Forbidden` - Insufficient permissions
+    - `404 Not Found` - Resource not found
+    - `422 Unprocessable Entity` - Validation errors
+    - `429 Too Many Requests` - Rate limit exceeded
+
+#### Server Errors
+
+- `500 Internal Server Error` - Server error
+    - `502 Bad Gateway` - Upstream service error
+    - `503 Service Unavailable` - Service temporarily unavailable
+
+
+
+## SDKs and Libraries
+
+We provide official SDKs for popular programming languages:
+
+
+**[JavaScript/Node.js](https://github.com/salsaasaservice/salsa-js)**  
+Official SDK for JavaScript and Node.js applications.
+
+**[Python](https://github.com/salsaasaservice/salsa-python)**  
+Python SDK for data analysis and automation.
+
+**[PHP](https://github.com/salsaasaservice/salsa-php)**  
+PHP SDK for web applications and WordPress plugins.
+
+
+
+## Webhooks
+
+Configure webhooks to receive real-time notifications about important events.
+
+### Supported Events
+
+- `ingredient.low_stock` - When ingredient stock falls below threshold
+- `production.batch_completed` - When a production batch is completed
+- `quality.alert` - When quality scores fall below acceptable levels
+- `inventory.expiry_warning` - When ingredients are approaching expiry
+
+### Webhook Configuration
+
+```http
+POST /webhooks
+```
+
+**Request Body:**
+
+```json
+{
+  "url": "https://your-app.com/webhooks/salsa",
+  "events": ["ingredient.low_stock", "production.batch_completed"],
+  "secret": "your_webhook_secret"
+}
+```
+
+## Testing
+
+Use our sandbox environment for testing your integrations:
+
+**Sandbox Base URL:**
+```
+https://api-sandbox.salsaasaservice.com/v1
+```
+
+> **Warning:**
+**Sandbox Data**: The sandbox environment uses test data and doesn't affect your production account.
+
+
+## Support
+
+Need help with the API? We're here to assist:
+
+- 📧 **Email**: api-support@salsaasaservice.com
+- 📚 **Documentation**: Browse our comprehensive guides
+- 💬 **Developer Community**: Join our Discord server
+- 🎥 **Video Tutorials**: Watch integration tutorials

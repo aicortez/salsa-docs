@@ -1,0 +1,91 @@
+---
+title: "Gestion d'inventaire"
+description: "Suivez les ingrédients de salsa et surveillez la fraîcheur avec des systèmes d'inventaire intelligents"
+---
+
+# Gestion d'inventaire
+
+Suivez les ingrédients de salsa, surveillez la fraîcheur et prévenez le gaspillage avec notre système d'inventaire intelligent.
+
+## Aperçu
+
+Notre système de gestion d'inventaire fournit un suivi en temps réel de tous vos ingrédients de salsa, vous aidant à maintenir des niveaux de stock optimaux et à réduire le gaspillage.
+
+## Fonctionnalités principales
+
+### Suivi en temps réel
+
+Surveillez vos niveaux d'ingrédients en temps réel dans tous les emplacements. Recevez des mises à jour instantanées lorsque les articles sont utilisés en production ou reçus des fournisseurs.
+
+```javascript
+// Exemple : Vérifier l'inventaire actuel
+const inventory = await salsa.inventory.getAll({
+  location: "kitchen_1",
+  status: "in_stock"
+});
+
+console.log(`Total des articles : ${inventory.length}`);
+```
+
+### Surveillance de la fraîcheur
+
+Suivez les dates d'expiration et recevez des alertes lorsque les ingrédients approchent de leur date limite d'utilisation.
+
+- Suivi automatique des expirations
+- Alertes intelligentes 3, 7 et 14 jours avant l'expiration
+- Recommandations FIFO (Premier entré, premier sorti)
+- Suivi par lot pour une traçabilité complète
+
+### Prévention du gaspillage
+
+Notre système intelligent aide à réduire le gaspillage en :
+
+- Prédisant les modèles d'utilisation
+- Suggérant des quantités de commande optimales
+- Alertant lorsque les articles risquent d'expirer
+- Recommandant des recettes qui utilisent des ingrédients proche de l'expiration
+
+## Gestion des stocks
+
+### Alertes de stock faible
+
+Définissez des seuils personnalisés pour chaque ingrédient et recevez des notifications lorsque le stock est faible.
+
+> **Note:**
+**Conseil professionnel** : Définissez des niveaux d'alerte différents pour les jours de semaine par rapport aux week-ends en fonction de vos modèles d'utilisation typiques.
+
+
+### Intégration fournisseur
+
+Connectez-vous directement avec les fournisseurs pour des commandes rationalisées :
+
+- Renouvellement de commande en un clic
+- Bons de commande automatiques
+- Suivi de livraison
+- Réconciliation des factures
+
+## Rapports
+
+Générez des rapports d'inventaire détaillés :
+
+- Rapports de valorisation des stocks
+- Analyse d'utilisation par recette
+- Suivi du gaspillage et analyse des coûts
+- Métriques de performance des fournisseurs
+
+## Démarrage
+
+
+1. **Ajouter les ingrédients**
+   Commencez par ajouter vos ingrédients au système avec les quantités et les fournisseurs.
+
+2. **Définir les seuils d'alerte**
+   Configurez les alertes de stock faible et d'expiration pour chaque ingrédient.
+
+3. **Connecter les fournisseurs**
+   Liez vos comptes fournisseurs pour des commandes automatisées.
+
+4. **Commencer le suivi**
+   Commencez à enregistrer l'utilisation des ingrédients en production et regardez votre inventaire se mettre à jour automatiquement.
+
+

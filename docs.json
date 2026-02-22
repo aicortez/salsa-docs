@@ -1,0 +1,64 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Salsa as a Service",
+  "colors": {
+    "primary": "#16A34A",
+    "light": "#07C983",
+    "dark": "#15803D"
+  },
+  "favicon": "/favicon.svg",
+  "navigation": {
+    "groups": [
+      {
+        "group":"V1",
+        "pages":[
+          "v1/index",
+          "v1/getting-started",
+          "v1/integrations",
+          "v1/pricing",
+          "v1/troubleshooting",
+          "v1/analytics",
+          "v1/quality",
+          "v1/inventory"
+        ]
+      }
+    ]
+  },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "mailto:support@salsaasaservice.com"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Dashboard",
+      "href": "https://dashboard.salsaasaservice.com"
+    }
+  },
+  "contextual": {
+    "options": [
+     "copy",
+     "view",
+     "chatgpt",
+     "claude",
+     "perplexity",
+     "mcp",
+     "cursor",
+     "vscode"
+   ]
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/salsaasaservice",
+      "github": "https://github.com/salsaasaservice",
+      "linkedin": "https://linkedin.com/company/salsaasaservice"
+    }
+  }
+}

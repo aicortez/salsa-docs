@@ -1,0 +1,334 @@
+---
+title: "Intégrations"
+description: "Connectez Salsa as a Service avec vos outils et systèmes de gestion de restaurant existants"
+---
+
+# Intégrations
+
+Salsa as a Service s'intègre parfaitement avec votre stack technologique de restaurant existant pour offrir une expérience de gestion de salsa unifiée.
+
+## Intégrations populaires
+
+
+**[Systèmes POS](#systemes-pos)**
+Connectez-vous avec Square, Toast, Clover et d'autres systèmes POS majeurs.
+
+**[Gestion de cuisine](#gestion-de-cuisine)**
+Intégrez avec les systèmes d'affichage de cuisine et les plateformes de gestion de commandes.
+
+**[Gestion d'inventaire](#gestion-dinventaire)**
+Synchronisez avec les systèmes existants de gestion d'inventaire et de chaîne d'approvisionnement.
+
+**[Plateformes analytiques](#plateformes-analytiques)**
+Connectez-vous avec les outils d'intelligence d'affaires et de reporting.
+
+
+
+## Systèmes POS
+
+Connectez votre système de point de vente pour suivre automatiquement les ventes de salsa et l'utilisation de l'inventaire.
+
+### Intégration Square
+
+
+1. **Activer l'intégration Square**
+   Naviguez vers **Intégrations > Systèmes POS** dans votre tableau de bord.
+
+2. **Connecter votre compte Square**
+   Cliquez sur "Connecter Square" et autorisez l'intégration avec vos identifiants Square.
+
+3. **Mapper les articles du menu**
+   Mappez vos articles de menu de salsa aux articles d'inventaire correspondants dans Salsa as a Service.
+
+4. **Tester la connexion**
+   Traitez une transaction de test pour vérifier que l'intégration fonctionne correctement.
+
+
+
+**Fonctionnalités :**
+- Suivi automatique des ventes
+- Mises à jour d'inventaire en temps réel
+- Analytique des commandes clients
+- Rapports de revenus
+
+> **Note:**
+**Exigences de l'API Square** : Assurez-vous que votre compte Square a l'accès API activé et les permissions nécessaires pour la gestion d'inventaire.
+
+
+### Intégration Toast
+
+L'intégration Toast POS offre des fonctionnalités avancées pour les restaurants à service complet :
+
+**Processus de configuration :**
+
+1. **Configuration API** : Configurez vos identifiants API Toast
+2. **Synchronisation du menu** : Synchronisez vos articles de menu de salsa
+3. **Mappage d'inventaire** : Mappez l'inventaire Toast aux articles Salsa as a Service
+4. **Synchronisation en temps réel** : Activez la synchronisation des données en temps réel
+
+**Fonctionnalités avancées :**
+- Support multi-emplacements
+- Suivi de la performance du personnel
+- Analytique des préférences des clients
+- Renouvellement automatique de commande
+
+### Intégration Clover
+
+Connectez-vous avec Clover POS pour une gestion de restaurant complète :
+
+
+#### Configuration de base
+
+- Installez l'application Salsa as a Service depuis le marché d'applications Clover
+- Configurez les permissions API
+- Configurez le mappage des articles du menu
+- Testez l'intégration
+
+#### Fonctionnalités avancées
+
+- Synchronisation multi-appareils
+- Support du mode hors ligne
+- Rapports personnalisés
+- Modules de formation du personnel
+
+#### Dépannage
+
+- Vérifiez les identifiants API
+- Vérifiez la connectivité réseau
+- Examinez les journaux de synchronisation
+- Contactez le support si les problèmes persistent
+
+
+
+## Gestion de cuisine
+
+### Systèmes d'affichage de cuisine (KDS)
+
+Intégrez avec les plateformes KDS populaires pour rationaliser les flux de travail de production de salsa :
+
+
+**[Toast Kitchen](/guides/toast-kitchen)**
+Intégration transparente avec le système d'affichage de cuisine de Toast pour la gestion des commandes.
+
+**[Square Kitchen](/guides/square-kitchen)**
+Connectez-vous avec les outils de gestion de cuisine de Square pour un traitement efficace des commandes.
+
+**[KDS personnalisé](/guides/custom-kds)**
+Intégration API pour les systèmes d'affichage de cuisine personnalisés et les solutions propriétaires.
+
+
+
+### Plateformes de gestion de commandes
+
+**Intégration Grubhub :**
+
+```javascript
+// Exemple : Envoi de données de commande de salsa à Grubhub
+const salsaOrder = {
+  orderId: "GH_12345",
+  items: [
+    {
+      name: "Salsa maison",
+      quantity: 2,
+      spiceLevel: "medium",
+      specialInstructions: "extra coriandre"
+    }
+  ],
+  customerPreferences: {
+    spiceTolerance: "medium",
+    allergies: ["noix"]
+  }
+};
+
+// Envoyer à l'API Salsa as a Service
+await salsaAPI.createOrder(salsaOrder);
+```
+
+**Intégration DoorDash :**
+
+- Suivi de commande en temps réel
+- Apprentissage des préférences des clients
+- Intégration des retours de qualité
+- Optimisation de la livraison
+
+## Gestion d'inventaire
+
+### Intégration de la chaîne d'approvisionnement
+
+Connectez-vous avec vos fournisseurs et distributeurs pour une gestion automatisée de l'inventaire :
+
+**Plateformes supportées :**
+- Sysco
+- US Foods
+- Distributeurs locaux
+- Fournisseurs de produits alimentaires spécialisés
+
+**Fonctionnalités :**
+- Renouvellement automatique de commande
+- Comparaison de prix
+- Suivi de la performance des fournisseurs
+- Intégration des scores de qualité
+
+### Systèmes ERP
+
+Intégrez avec les systèmes de planification des ressources d'entreprise :
+
+
+**[Intégration SAP](/guides/sap-integration)**
+Connectez-vous avec SAP pour une gestion d'inventaire et financière de niveau entreprise.
+
+**[Oracle NetSuite](/guides/oracle-netsuite)**
+Synchronisez avec Oracle NetSuite pour une gestion d'entreprise complète.
+
+**[Microsoft Dynamics](/guides/microsoft-dynamics)**
+Intégrez avec Microsoft Dynamics pour des opérations commerciales unifiées.
+
+
+
+## Plateformes analytiques
+
+### Outils d'intelligence d'affaires
+
+Connectez-vous avec les plateformes BI populaires pour des analyses avancées :
+
+**Intégration Tableau :**
+
+```sql
+-- Exemple : Requête Tableau personnalisée pour l'analytique de salsa
+SELECT
+  recipe_name,
+  production_date,
+  quality_score,
+  waste_percentage,
+  customer_satisfaction
+FROM salsa_production_data
+WHERE production_date >= '2024-01-01'
+ORDER BY quality_score DESC;
+```
+
+**Intégration Power BI :**
+
+- Tableaux de bord en temps réel
+- Visualisations personnalisées
+- Rapports automatisés
+- Capacités d'export de données
+
+### Google Analytics
+
+Suivez les métriques liées à la salsa dans Google Analytics :
+
+1. **Suivi d'événements** : Configurez des événements personnalisés pour la production de salsa
+2. **Configuration d'objectifs** : Définissez des objectifs pour les métriques de qualité
+3. **Dimensions personnalisées** : Suivez la performance des recettes
+4. **Segmentation** : Analysez les préférences des clients
+
+## Intégrations personnalisées
+
+### Configuration de webhooks
+
+Configurez des webhooks pour la synchronisation des données en temps réel :
+
+```javascript
+// Exemple de gestionnaire de webhook
+app.post('/webhooks/salsa', (req, res) => {
+  const { event, data } = req.body;
+
+  switch (event) {
+    case 'production.batch_completed':
+      updateKitchenDisplay(data);
+      break;
+    case 'inventory.low_stock':
+      sendAlertToManager(data);
+      break;
+    case 'quality.alert':
+      notifyQualityTeam(data);
+      break;
+  }
+
+  res.status(200).send('OK');
+});
+```
+
+### Intégration API
+
+Créez des intégrations personnalisées en utilisant notre API REST :
+
+**Authentification :**
+```bash
+curl -H "Authorization: Bearer YOUR_API_KEY" \
+     https://api.salsaasaservice.com/v1/recipes
+```
+
+**Limitation de débit :**
+- Plan gratuit : 1 000 requêtes/heure
+- Professionnel : 10 000 requêtes/heure
+- Entreprise : 100 000 requêtes/heure
+
+## Tests d'intégration
+
+### Environnement sandbox
+
+Testez vos intégrations dans notre environnement sandbox :
+
+**URL Sandbox :**
+```
+https://api-sandbox.salsaasaservice.com/v1
+```
+
+**Données de test :**
+- Exemples de recettes et d'ingrédients
+- Données de production simulées
+- Transactions POS simulées
+- Points de terminaison webhook de test
+
+### Liste de contrôle des tests
+
+
+1. **Test d'authentification**
+   Vérifiez l'authentification par clé API et les permissions.
+
+2. **Test de synchronisation des données**
+   Testez la synchronisation des données entre les systèmes.
+
+3. **Test de gestion d'erreurs**
+   Testez les scénarios d'erreur et les mécanismes de récupération.
+
+4. **Test de performance**
+   Testez les performances d'intégration sous charge.
+
+
+
+## Dépannage
+
+### Problèmes d'intégration courants
+
+> **Warning:**
+**Limites de débit API** : Si vous atteignez les limites de débit, envisagez de mettre en œuvre un recul exponentiel ou de mettre à niveau votre plan.
+
+
+**Erreurs d'authentification :**
+- Vérifiez que la clé API est correcte
+- Vérifiez les permissions de la clé
+- Assurez-vous que la clé n'a pas expiré
+
+**Problèmes de synchronisation des données :**
+- Vérifiez la connectivité réseau
+- Vérifiez les points de terminaison webhook
+- Examinez les journaux de synchronisation
+- Testez avec l'environnement sandbox
+
+**Problèmes de performance :**
+- Surveillez les temps de réponse de l'API
+- Vérifiez la limitation de débit
+- Optimisez la fréquence des requêtes
+- Envisagez des stratégies de mise en cache
+
+## Support
+
+Besoin d'aide avec les intégrations ?
+
+- 📧 **Support d'intégration** : integrations@salsaasaservice.com
+- 📚 **Documentation développeur** : Guides complets et exemples
+- 💬 **Communauté développeur** : Rejoignez notre Discord pour le support par les pairs
+- 🎥 **Tutoriels vidéo** : Vidéos d'intégration étape par étape
+- 🔧 **Services d'intégration personnalisés** : Assistance professionnelle à l'intégration

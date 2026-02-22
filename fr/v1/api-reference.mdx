@@ -1,0 +1,293 @@
+---
+title: "Référence API"
+description: "Documentation API complète pour l'intégration avec Salsa as a Service"
+---
+
+# API Salsa as a Service
+
+L'API Salsa as a Service vous permet d'intégrer les capacités de gestion de salsa dans vos systèmes de gestion de restaurant, systèmes de point de vente et applications personnalisées existants.
+
+## URL de base
+
+```
+https://api.salsaasaservice.com/v1
+```
+
+## Authentification
+
+Toutes les requêtes API nécessitent une authentification en utilisant votre clé API.
+
+> **Note:**
+**Clé API** : Obtenez votre clé API depuis les [Paramètres développeur](https://app.salsaasaservice.com/settings/api) dans votre tableau de bord.
+
+
+### En-tête d'authentification
+
+Incluez votre clé API dans l'en-tête Authorization :
+
+```http
+Authorization: Bearer VOTRE_CLE_API
+```
+
+## Limites de taux
+
+- **Plan gratuit** : 1 000 requêtes par heure
+- **Plan professionnel** : 10 000 requêtes par heure
+- **Plan entreprise** : 100 000 requêtes par heure
+
+Les en-têtes de limite de taux sont inclus dans toutes les réponses :
+
+```http
+X-RateLimit-Limit: 1000
+X-RateLimit-Remaining: 999
+X-RateLimit-Reset: 1640995200
+```
+
+## Endpoints principaux
+
+
+**[Gestion d'inventaire](#inventaire)**  
+Gérez les ingrédients de salsa, suivez les niveaux de stock et surveillez la fraîcheur.
+
+**[Gestion de recettes](#recettes)**  
+Créez, mettez à jour et gérez les recettes de salsa et workflows de production.
+
+**[Suivi de production](#production)**  
+Suivez les lots de production de salsa, métriques de qualité et données de rendement.
+
+**[Analyses et rapports](#analyses)**  
+Accédez aux analyses détaillées et générez des rapports personnalisés.
+
+
+
+## Gestion d'inventaire
+
+### Obtenir tous les ingrédients
+
+Récupérez une liste de tous les ingrédients dans votre inventaire.
+
+```http
+GET /ingredients
+```
+
+**Réponse :**
+
+```json
+{
+  "data": [
+    {
+      "id": "ing_123",
+      "name": "Tomates Roma",
+      "category": "legumes",
+      "current_stock": 25.5,
+      "unit": "lbs",
+      "supplier": "Fresh Farms Co.",
+      "last_updated": "2024-01-15T10:30:00Z",
+      "expiry_date": "2024-01-20T00:00:00Z",
+      "quality_score": 8.5
+    }
+  ],
+  "pagination": {
+    "page": 1,
+    "per_page": 50,
+    "total": 1
+  }
+}
+```
+
+### Mettre à jour le stock d'ingrédient
+
+Mettez à jour le niveau de stock pour un ingrédient spécifique.
+
+```http
+PUT /ingredients/{ingredient_id}/stock
+```
+
+**Corps de la requête :**
+
+```json
+{
+  "quantity": 30.0,
+  "unit": "lbs",
+  "notes": "Nouvelle livraison reçue"
+}
+```
+
+### Ajouter un nouvel ingrédient
+
+Ajoutez un nouvel ingrédient à votre inventaire.
+
+```http
+POST /ingredients
+```
+
+**Corps de la requête :**
+
+```json
+{
+  "name": "Piments Jalapeño",
+  "category": "legumes",
+  "initial_stock": 5.0,
+  "unit": "lbs",
+  "supplier": "Spice Garden",
+  "expiry_date": "2024-01-25T00:00:00Z"
+}
+```
+
+## Gestion de recettes
+
+### Obtenir toutes les recettes
+
+Récupérez toutes les recettes de salsa dans votre compte.
+
+```http
+GET /recipes
+```
+
+**Réponse :**
+
+```json
+{
+  "data": [
+    {
+      "id": "rec_456",
+      "name": "Salsa maison",
+      "description": "Notre salsa signature piquant moyen",
+      "spice_level": "medium",
+      "batch_size": 5.0,
+      "yield": "gallons",
+      "prep_time": 30,
+      "ingredients": [
+        {
+          "ingredient_id": "ing_123",
+          "name": "Tomates Roma",
+          "quantity": 2.0,
+          "unit": "lbs"
+        }
+      ],
+      "created_at": "2024-01-10T09:00:00Z"
+    }
+  ]
+}
+```
+
+### Créer une nouvelle recette
+
+Créez une nouvelle recette de salsa.
+
+```http
+POST /recipes
+```
+
+**Corps de la requête :**
+
+```json
+{
+  "name": "Salsa Chipotle piquante",
+  "description": "Salsa fumée et piquante à base de chipotle",
+  "spice_level": "hot",
+  "batch_size": 3.0,
+  "yield": "gallons",
+  "prep_time": 45,
+  "ingredients": [
+    {
+      "ingredient_id": "ing_789",
+      "quantity": 1.5,
+      "unit": "lbs"
+    }
+  ]
+}
+```
+
+## Suivi de production
+
+### Démarrer un lot de production
+
+Commencez à suivre un nouveau lot de production de salsa.
+
+```http
+POST /production/batches
+```
+
+**Corps de la requête :**
+
+```json
+{
+  "recipe_id": "rec_456",
+  "batch_number": "LOT-2024-001",
+  "planned_quantity": 5.0,
+  "production_date": "2024-01-15T08:00:00Z",
+  "assigned_chef": "chef_123"
+}
+```
+
+### Compléter un lot de production
+
+Marquez un lot de production comme terminé avec les métriques de qualité.
+
+```http
+PUT /production/batches/{batch_id}/complete
+```
+
+**Corps de la requête :**
+
+```json
+{
+  "actual_quantity": 4.8,
+  "quality_score": 9.2,
+  "notes": "Excellent lot, consistance parfaite",
+  "completed_at": "2024-01-15T09:30:00Z"
+}
+```
+
+## Gestion des erreurs
+
+L'API utilise des codes de statut HTTP standard et retourne des informations d'erreur détaillées.
+
+### Format de réponse d'erreur
+
+```json
+{
+  "error": {
+    "code": "INVALID_REQUEST",
+    "message": "Le corps de la requête manque des champs requis",
+    "details": {
+      "missing_fields": ["name", "category"]
+    }
+  }
+}
+```
+
+### Codes d'erreur courants
+
+- `400 Bad Request` - Données de requête invalides
+- `401 Unauthorized` - Clé API manquante ou invalide
+- `403 Forbidden` - Permissions insuffisantes
+- `404 Not Found` - Ressource non trouvée
+- `429 Too Many Requests` - Limite de taux dépassée
+- `500 Internal Server Error` - Erreur serveur
+
+## SDKs et bibliothèques
+
+Nous fournissons des SDKs officiels pour les langages de programmation populaires :
+
+
+**[JavaScript/Node.js](https://github.com/salsaasaservice/salsa-js)**  
+SDK officiel pour applications JavaScript et Node.js.
+
+**[Python](https://github.com/salsaasaservice/salsa-python)**  
+SDK Python pour analyse de données et automatisation.
+
+**[PHP](https://github.com/salsaasaservice/salsa-php)**  
+SDK PHP pour applications web et plugins WordPress.
+
+
+
+## Support
+
+Besoin d'aide avec l'API ? Nous sommes là pour vous aider :
+
+- 📧 **E-mail** : api-support@salsaasaservice.com
+- 📚 **Documentation** : Parcourez nos guides complets
+- 💬 **Communauté développeur** : Rejoignez notre serveur Discord
+- 🎥 **Tutoriels vidéo** : Regardez des tutoriels d'intégration

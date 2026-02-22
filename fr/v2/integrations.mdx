@@ -1,0 +1,247 @@
+---
+title: "Intégrations"
+description: "Connectez Salsa as a Service v2.0 avec 50+ systèmes de restaurant, plateformes POS et outils d'entreprise"
+---
+
+# Intégrations
+
+Salsa as a Service v2.0 se connecte de manière transparente avec votre stack technologique de restaurant existant. Avec 50+ intégrations pré-construites et une API flexible, vous pouvez unifier vos opérations.
+
+## Catégories d'intégration
+
+
+**[Point de vente (POS)](#systemes-pos)**  
+Connectez avec les principales plateformes POS pour synchronisation en temps réel.
+
+**[Chaîne d'approvisionnement](#chaine-approvisionnement)**  
+Intégrez avec distributeurs alimentaires pour commandes automatisées.
+
+**[Gestion de cuisine](#systemes-cuisine)**  
+Synchronisez avec KDS, gestion de recettes et systèmes d'automatisation.
+
+**[Systèmes d'entreprise](#entreprise)**  
+Connectez avec ERP, comptabilité et plateformes d'intelligence d'affaires.
+
+**[Communication](#communication)**  
+Intégrez avec Slack, Teams, SMS et autres outils de communication.
+
+**[IoT et matériel](#iot-materiel)**  
+Connectez capteurs, balances et équipement de cuisine intelligent.
+
+
+
+## Systèmes de point de vente
+
+### Intégrations POS populaires
+
+
+#### Square
+
+**Niveau d'intégration** : ⭐⭐⭐⭐⭐ Native
+
+    **Fonctionnalités :**
+    - Synchronisation des ventes en temps réel (délai < 5 secondes)
+    - Mises à jour bidirectionnelles d'inventaire
+    - Mappage automatique du menu avec IA
+    - Support multi-emplacements
+
+    **Temps de configuration** : 5 minutes
+
+    ```bash
+    # Configuration rapide via CLI
+    salsa integrations add square \
+      --oauth \
+      --locations all \
+      --sync realtime
+    ```
+
+#### Toast
+
+**Niveau d'intégration** : ⭐⭐⭐⭐⭐ Native
+
+    **Fonctionnalités :**
+    - Synchronisation menu et inventaire en temps réel
+    - Support de structures de menu complexes
+    - Groupes de restaurants multi-emplacements
+    - Synchronisation main-d'œuvre
+
+    **Temps de configuration** : 10 minutes
+
+#### Clover
+
+**Niveau d'intégration** : ⭐⭐⭐⭐⭐ Native
+
+    **Fonctionnalités :**
+    - Intégration Clover App Market
+    - Synchronisation d'inventaire en temps réel
+    - Gestion des commandes
+    - Synchronisation des données clients
+
+    **Installation** : Disponible dans Clover App Market
+
+
+
+## Chaîne d'approvisionnement et distributeurs
+
+Automatisez la commande d'ingrédients avec intégrations directes de distributeurs :
+
+
+#### Sysco
+
+**Niveau d'intégration** : ⭐⭐⭐⭐⭐ Native
+
+    **Fonctionnalités :**
+    - Commande automatisée basée sur prévisions IA
+    - Disponibilité d'inventaire en temps réel
+    - Mises à jour de tarifs et catalogue
+    - Suivi de commande et notifications de livraison
+
+    **Avantages :**
+    - Réduction de 40% du temps de commande
+    - Quantités optimales basées sur prévisions
+    - Réduction de 60% des ruptures de stock
+
+#### US Foods
+
+**Niveau d'intégration** : ⭐⭐⭐⭐⭐ Native
+
+    **Fonctionnalités :**
+    - Commande directe via US Foods Connect
+    - Intégration du catalogue de produits
+    - Tarification et disponibilité
+    - Planification de livraison
+
+#### Fournisseurs locaux
+
+**Niveau d'intégration** : ⭐⭐⭐ Personnalisé
+
+    **Fonctionnalités :**
+    - Intégration de fournisseur personnalisée via API
+    - Commande par e-mail
+    - Création de commande manuelle avec modèles
+    - Import/export CSV
+
+
+
+## Systèmes d'entreprise
+
+### Intégration ERP
+
+Connectez avec les systèmes de planification des ressources d'entreprise :
+
+
+#### SAP
+
+**Produits SAP supportés :**
+    - SAP Business One
+    - SAP S/4HANA
+    - SAP ECC
+
+    **Points d'intégration :**
+    - Gestion des matériaux (MM)
+    - Comptabilité financière (FI)
+    - Contrôle de gestion (CO)
+    - Planification de production (PP)
+
+    **Configuration** : Les clients entreprise reçoivent un support d'intégration SAP dédié
+
+#### Oracle
+
+**Produits Oracle supportés :**
+    - Oracle E-Business Suite
+    - Oracle Cloud ERP
+    - Oracle NetSuite
+
+    **Points d'intégration :**
+    - Gestion de la chaîne d'approvisionnement
+    - Gestion financière
+    - Approvisionnement
+
+#### Microsoft Dynamics
+
+**Produits Dynamics supportés :**
+    - Dynamics 365 Finance
+    - Dynamics 365 Supply Chain Management
+    - Dynamics 365 Business Central
+
+    **Intégration** : Intégration native Azure AD avec support SSO
+
+
+
+### Logiciels de comptabilité
+
+
+
+
+## Communication et notifications
+
+### Communication d'équipe
+
+
+#### Slack
+
+**Fonctionnalités :**
+    - Alertes et notifications en temps réel
+    - Mises à jour de production
+    - Alertes de qualité
+    - Avertissements d'inventaire
+
+    **Commandes de bot :**
+    ```
+    /salsa forecast          # Voir les prévisions du jour
+    /salsa inventory [item]  # Vérifier les niveaux de stock
+    /salsa production        # État de production actuel
+    /salsa quality           # Scores de qualité récents
+    ```
+
+    **Configuration** : Ajoutez le bot Salsa depuis Slack App Directory
+
+#### Microsoft Teams
+
+**Fonctionnalités :**
+    - Intégration de canal Teams
+    - Cartes adaptatives pour notifications enrichies
+    - Commandes et interactions de bot
+    - Partage de fichiers (rapports, exports)
+
+    **Intégration** : Disponible dans Microsoft Teams App Store
+
+
+
+## Intégrations personnalisées
+
+### Méthodes d'intégration
+
+
+**[API REST](/fr/v2/reference-api)**  
+Endpoints REST traditionnels pour large compatibilité.
+
+**[API GraphQL](/fr/v2/reference-api#graphql)**  
+Requêtes flexibles et abonnements en temps réel.
+
+**[Webhooks](/fr/v2/reference-api#webhooks)**  
+Notifications d'événements en temps réel vers vos systèmes.
+
+
+
+## Support d'intégration
+
+
+**[Documentation](/fr/v2/reference-api)**  
+Documentation API complète et guides d'intégration.
+
+**[Portail développeur](https://developers.salsaasaservice.com)**  
+Explorateur API interactif et outils de test.
+
+
+
+### Canaux de support
+
+- 📧 **E-mail** : integrations@salsaasaservice.com
+- 💬 **Discord développeur** : Rejoignez notre communauté
+- 📚 **Base de connaissances** : Parcourez les tutoriels d'intégration
+- 🎥 **Guides vidéo** : Guides d'intégration étape par étape
+
+> **Note:**
+**Support d'intégration entreprise** : Les clients entreprise reçoivent des ingénieurs d'intégration dédiés et un support prioritaire.
+

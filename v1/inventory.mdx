@@ -1,0 +1,91 @@
+---
+title: "Inventory Management"
+description: "Track salsa ingredients and monitor freshness with intelligent inventory systems"
+---
+
+# Inventory Management
+
+Track salsa ingredients, monitor freshness, and prevent waste with our intelligent inventory system.
+
+## Overview
+
+Our inventory management system provides real-time tracking of all your salsa ingredients, helping you maintain optimal stock levels and reduce waste.
+
+## Key Features
+
+### Real-Time Tracking
+
+Monitor your ingredient levels in real-time across all locations. Get instant updates when items are used in production or received from suppliers.
+
+```javascript
+// Example: Check current inventory
+const inventory = await salsa.inventory.getAll({
+  location: "kitchen_1",
+  status: "in_stock"
+});
+
+console.log(`Total items: ${inventory.length}`);
+```
+
+### Freshness Monitoring
+
+Track expiration dates and receive alerts when ingredients are approaching their use-by date.
+
+- Automatic expiration tracking
+- Smart alerts 3, 7, and 14 days before expiration
+- FIFO (First In, First Out) recommendations
+- Batch tracking for complete traceability
+
+### Waste Prevention
+
+Our intelligent system helps reduce waste by:
+
+- Predicting usage patterns
+- Suggesting optimal order quantities
+- Alerting when items are at risk of expiring
+- Recommending recipes that use near-expiry ingredients
+
+## Stock Management
+
+### Low Stock Alerts
+
+Set custom thresholds for each ingredient and receive notifications when stock runs low.
+
+> **Note:**
+**Pro Tip**: Set different alert levels for weekdays vs. weekends based on your typical usage patterns.
+
+
+### Supplier Integration
+
+Connect directly with suppliers for streamlined ordering:
+
+- One-click reordering
+- Automatic purchase orders
+- Delivery tracking
+- Invoice reconciliation
+
+## Reporting
+
+Generate detailed inventory reports:
+
+- Stock valuation reports
+- Usage analysis by recipe
+- Waste tracking and cost analysis
+- Supplier performance metrics
+
+## Getting Started
+
+
+1. **Add Ingredients**
+   Start by adding your ingredients to the system with quantities and suppliers.
+
+2. **Set Alert Thresholds**
+   Configure low stock and expiration alerts for each ingredient.
+
+3. **Connect Suppliers**
+   Link your supplier accounts for automated ordering.
+
+4. **Start Tracking**
+   Begin recording ingredient usage in production and watch your inventory update automatically.
+
+
