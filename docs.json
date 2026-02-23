@@ -33,8 +33,7 @@
                     "pages": [
                       "v2/index",
                       "v2/getting-started",
-                      "v2/pricing",
-                      "v2/troubleshooting"
+                      "v2/pricing"
                     ]
                   },
                   {
@@ -42,7 +41,8 @@
                     "icon": "book-open",
                     "pages": [
                       "v2/advanced-usage",
-                      "v2/integrations"
+                      "v2/integrations",
+                      "v2/troubleshooting"
                     ]
                   },
                   {
