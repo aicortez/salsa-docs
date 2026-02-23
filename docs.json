@@ -7,7 +7,7 @@
     "light": "#D97706",
     "dark": "#451A03"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/images/favicon.png",
   "api": {
     "mdx": {
       "server": "https://api.salsaasaservice.com/v2",
@@ -291,8 +291,8 @@
     ]
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/images/light.png",
+    "dark": "/images/dark.png"
   },
   "navbar": {
     "links": [
