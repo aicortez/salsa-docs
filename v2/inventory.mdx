@@ -22,6 +22,8 @@ Monitor your ingredient levels with intelligent predictions:
 - **Usage predictions**: Machine learning predicts ingredient needs
 - **Anomaly detection**: AI identifies unusual consumption patterns
 
+<CodeGroup dropdown>
+
 ```javascript
 // Example: Get AI inventory predictions
 const predictions = await salsa.ai.inventory.predict({
@@ -31,6 +33,26 @@ const predictions = await salsa.ai.inventory.predict({
 
 console.log(`Predicted reorder date: ${predictions.reorder_date}`);
 ```
+
+```python
+# Example: Get AI inventory predictions
+predictions = salsa.ai.inventory.predict(
+    location="kitchen_1",
+    horizon_days=7
+)
+print(f"Predicted reorder date: {predictions.reorder_date}")
+```
+
+```php
+// Example: Get AI inventory predictions
+$predictions = $salsa->ai->inventory->predict([
+    'location' => 'kitchen_1',
+    'horizon_days' => 7
+]);
+echo "Predicted reorder date: " . $predictions->reorder_date;
+```
+
+</CodeGroup>
 
 ### IoT Sensor Integration
 
@@ -61,7 +83,7 @@ Intelligent alerts that learn from your patterns:
 - Event-based usage predictions
 - Supplier lead time optimization
 
-> **Note:** **New in v2.0**: AI learns your usage patterns and automatically adjusts alert thresholds based on historical data and upcoming events.
+<Note> <Badge color="green">New in v2.0</Badge> AI learns your usage patterns and automatically adjusts alert thresholds based on historical data and upcoming events.</Note>
 
 ### Automated Supplier Integration
 
@@ -96,6 +118,8 @@ AI identifies trends and patterns:
 
 Let AI handle your ordering:
 
+<CodeGroup dropdown>
+
 ```javascript
 // Example: Enable AI auto-ordering
 const autoOrder = await salsa.ai.inventory.enableAutoOrder({
@@ -106,9 +130,40 @@ const autoOrder = await salsa.ai.inventory.enableAutoOrder({
 });
 ```
 
+```python
+# Example: Enable AI auto-ordering
+auto_order = salsa.ai.inventory.enable_auto_order(
+    location="kitchen_1",
+    max_order_value=5000,
+    approval_required_over=1000,
+    preferred_suppliers=["sysco", "us_foods"]
+)
+```
+
+```php
+// Example: Enable AI auto-ordering
+$auto_order = $salsa->ai->inventory->enableAutoOrder([
+    'location' => 'kitchen_1',
+    'max_order_value' => 5000,
+    'approval_required_over' => 1000,
+    'preferred_suppliers' => ['sysco', 'us_foods']
+]);
+```
+</CodeGroup>
+
 ## Getting Started
 
-1. **Connect IoT Sensors** Install RFID tags and temperature sensors in your storage areas.
-2. **Enable AI Features** Activate AI predictions and import 90 days of historical data.
-3. **Configure Auto-Ordering** Set up automated ordering rules and supplier preferences.
-4. **Monitor & Optimize** Let AI learn from your patterns and optimize over time.
+<Steps>
+  <Step title="Connect IoT Sensors">
+  Install RFID tags and temperature sensors in your storage areas.
+  </Step>
+  <Step title="Enable AI Features">
+  Activate AI predictions and import 90 days of historical data.
+  </Step>
+  <Step title="Configure Auto-Ordering">
+  Set up automated ordering rules and supplier preferences.
+  </Step>
+  <Step title="Monitor & Optimize">
+  Let AI learn from your patterns and optimize over time.
+  </Step>
+</Steps>
