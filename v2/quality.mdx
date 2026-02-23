@@ -22,6 +22,8 @@ AI predicts quality scores before batch completion:
 - Predicts final quality score with 95% accuracy
 - Provides early warnings for potential issues
 
+<CodeGroup dropdown>
+
 ```javascript
 // Example: Get AI quality prediction
 const prediction = await salsa.ai.quality.predict({
@@ -32,6 +34,27 @@ const prediction = await salsa.ai.quality.predict({
 console.log(`Predicted quality: ${prediction.score}/10`);
 console.log(`Confidence: ${prediction.confidence}%`);
 ```
+
+```python
+# Example: Get AI quality prediction
+prediction = salsa.ai.quality.predict(
+    batch_id="BATCH-2024-001",
+    current_stage="mixing"
+)
+print(f"Predicted quality: {prediction.score}/10")
+print(f"Confidence: {prediction.confidence}%")
+```
+
+```php
+// Example: Get AI quality prediction
+$prediction = $salsa->ai->quality->predict([
+    'batch_id' => 'BATCH-2024-001',
+    'current_stage' => 'mixing'
+]);
+echo "Predicted quality: " . $prediction->score . "/10";
+echo "Confidence: " . $prediction->confidence . "%";
+```
+</CodeGroup>
 
 ### Anomaly Detection
 
@@ -62,8 +85,7 @@ AI-powered visual quality control:
 - Portion control verification
 - Packaging quality checks
 
-> **Note:**
-**New in v2.0**: Computer vision systems can inspect 100% of production, compared to manual sampling in v1.0.
+<Note><Badge color="green">New in v2.0</Badge> Computer vision systems can inspect 100% of production, compared to manual sampling in v1.0.</Note>
 
 
 ## Quality Scoring
@@ -71,6 +93,8 @@ AI-powered visual quality control:
 ### AI-Enhanced Scoring
 
 Machine learning improves quality assessment:
+
+<CodeGroup dropdown>
 
 ```javascript
 // Example: Record quality with AI assistance
@@ -88,6 +112,41 @@ const qualityCheck = await salsa.ai.quality.recordScore({
   ai_analysis: true
 });
 ```
+
+```python
+# Example: Record quality with AI assistance
+quality_check = salsa.ai.quality.recordScore(
+    batch_id="BATCH-2024-001",
+    automated_scores={
+        "visual_ai": 9.2,
+        "ph_sensor": 8.8,
+        "viscosity": 9.0,
+        "temperature": 10.0
+    },
+    manual_scores={
+        "taste": 9.5
+    },
+    ai_analysis=True
+)
+```
+
+```php
+// Example: Record quality with AI assistance
+$qualityCheck = $salsa->ai->quality->recordScore([
+    'batch_id' => 'BATCH-2024-001',
+    'automated_scores' => [
+        'visual_ai' => 9.2,
+        'ph_sensor' => 8.8,
+        'viscosity' => 9.0,
+        'temperature' => 10.0
+    ],
+    'manual_scores' => [
+        'taste' => 9.5
+    ],
+    'ai_analysis' => true
+]);
+```
+</CodeGroup>
 
 ## Predictive Maintenance
 
@@ -138,11 +197,15 @@ AI suggests quality improvements:
 - Equipment upgrade recommendations
 - Training needs identification
 
-> **Warning:**
+<Warning>
 **Critical Quality Alerts**: AI-detected safety issues trigger immediate production halts and manager notifications.
+</Warning>
 
 
 ## Best Practices
 
-
-
+Best practices for maintaining high quality:
+- Regularly review AI quality predictions and adjust processes accordingly
+- Ensure IoT testing equipment is properly calibrated and maintained
+- Use AI insights to continuously improve recipes and production methods
+- Train staff on interpreting AI quality data and taking appropriate actions
