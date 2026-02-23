@@ -1,0 +1,35 @@
+---
+title: "Create New Recipe"
+description: "Create a new salsa recipe"
+api: "POST /recipes"
+deprecated: false
+version: "2.0"
+---
+
+### Create New Recipe
+
+Create a new salsa recipe.
+
+```http
+POST /recipes
+```
+
+**Request Body:**
+
+```json
+{
+  "name": "Spicy Chipotle Salsa",
+  "description": "Smoky and spicy chipotle-based salsa",
+  "spice_level": "hot",
+  "batch_size": 3.0,
+  "yield": "gallons",
+  "prep_time": 45,
+  "ingredients": [
+    {
+      "ingredient_id": "ing_789",
+      "quantity": 1.5,
+      "unit": "lbs"
+    }
+  ]
+}
+```

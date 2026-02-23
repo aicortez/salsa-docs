@@ -1,0 +1,24 @@
+---
+title: "Add New Ingredient"
+description: "Add a new ingredient to your inventory"
+api: "POST /ingredients"
+deprecated: false
+version: "2.0"
+---
+
+```http
+POST /ingredients
+```
+
+**Request Body:**
+
+```json
+{
+  "name": "Jalapeño Peppers",
+  "category": "vegetables",
+  "initial_stock": 5.0,
+  "unit": "lbs",
+  "supplier": "Spice Garden",
+  "expiry_date": "2024-01-25T00:00:00Z"
+}
+```

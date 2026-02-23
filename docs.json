@@ -8,6 +8,14 @@
     "dark": "#15803D"
   },
   "favicon": "/favicon.svg",
+  "api": {
+    "mdx": {
+      "server": "https://api.salsaasaservice.com/v2",
+      "auth": {
+        "method": "bearer"
+      }
+    }
+  },
   "navigation": {
     "languages": [
       {
@@ -57,8 +65,55 @@
               },
               {
                 "tab": "API Reference",
-                "pages": [
-                  "v2/api-reference"
+                "groups": [
+                  {
+                    "group": "API Reference",
+                    "pages": [
+                      "v2/api-reference"
+                    ]
+                  },
+                  {
+                    "group": "Inventory Management",
+                    "icon": "tomato",
+                    "pages": [
+                      "api/ingredients/get-all",
+                      "api/ingredients/add-new",
+                      "api/ingredients/update-stock"
+                    ]
+                  },
+                  {
+                    "group": "Recipe Management",
+                    "icon": "hat-chef",
+                    "pages": [
+                      "api/recipes/get-all",
+                      "api/recipes/create-new",
+                      "api/recipes/update"
+                    ]
+                  },
+                  {
+                    "group": "Production Tracking",
+                    "icon": "industry",
+                    "pages": [
+                      "api/production/start",
+                      "api/production/complete",
+                      "api/production/get"
+                    ]
+                  },
+                  {
+                    "group": "Analytics & Reporting",
+                    "icon": "analytics",
+                    "pages": [
+                      "api/analytics/inventory",
+                      "api/analytics/production"
+                    ]
+                  },
+                  {
+                    "group": "Webhooks",
+                    "icon": "link",
+                    "pages": [
+                      "api/webhooks/setup"
+                    ]
+                  }
                 ]
               },
               {

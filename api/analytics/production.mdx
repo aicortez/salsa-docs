@@ -1,0 +1,83 @@
+---
+title: "Get Production Analytics"
+description: "Retrieve analytics data for salsa production"
+api: "GET /analytics/production"
+deprecated: false
+version: "2.0"
+---
+## Headers
+<ParamField header="Authorization" type="string" placeholder="Bearer <token>" required>
+  Your API authentication token
+</ParamField>
+
+## Query Parameters
+
+<ParamField query="period" type="string" placeholder="7d">
+  Time period for analytics
+</ParamField>
+<ParamField query="recipe_id" type="string" placeholder="rec_456">
+  Filter analytics for a specific recipe ID
+</ParamField>
+
+## Response
+
+<ResponseField name="period" type="string">
+  The time period for the report (e.g. "30d").
+</ResponseField>
+
+<ResponseField name="total_batches" type="number">
+  Total number of batches in the period.
+</ResponseField>
+
+<ResponseField name="total_quantity" type="number">
+  Total quantity produced.
+</ResponseField>
+
+<ResponseField name="average_quality_score" type="number">
+  Average quality score across all batches.
+</ResponseField>
+
+<ResponseField name="waste_percentage" type="number">
+  Percentage of waste produced.
+</ResponseField>
+
+<ResponseField name="top_performing_recipes" type="object[]">
+  List of top performing recipes.
+  <Expandable title="properties">
+    <ResponseField name="recipe_id" type="string">
+      Unique identifier for the recipe.
+    </ResponseField>
+
+    <ResponseField name="name" type="string">
+      Name of the recipe.
+    </ResponseField>
+
+    <ResponseField name="batches" type="number">
+      Number of batches for this recipe.
+    </ResponseField>
+
+    <ResponseField name="avg_quality" type="number">
+      Average quality score for this recipe.
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+<ResponseExample>
+```json 200
+{
+  "period": "30d",
+  "total_batches": 45,
+  "total_quantity": 225.0,
+  "average_quality_score": 8.7,
+  "waste_percentage": 2.3,
+  "top_performing_recipes": [
+    {
+      "recipe_id": "rec_456",
+      "name": "House Salsa",
+      "batches": 30,
+      "avg_quality": 9.1
+    }
+  ]
+}
+```
+</ResponseExample>

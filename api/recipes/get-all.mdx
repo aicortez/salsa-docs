@@ -1,0 +1,39 @@
+---
+title: "Get All Recipes"
+description: "Retrieve all salsa recipes in your account"
+api: "GET /recipes"
+deprecated: false
+version: "2.0"
+---
+
+```http
+GET /recipes
+```
+
+**Response:**
+
+```json
+{
+  "data": [
+    {
+      "id": "rec_456",
+      "name": "House Salsa",
+      "description": "Our signature medium-spice salsa",
+      "spice_level": "medium",
+      "batch_size": 5.0,
+      "yield": "gallons",
+      "prep_time": 30,
+      "ingredients": [
+        {
+          "ingredient_id": "ing_123",
+          "name": "Roma Tomatoes",
+          "quantity": 2.0,
+          "unit": "lbs"
+        }
+      ],
+      "created_at": "2024-01-10T09:00:00Z",
+      "updated_at": "2024-01-15T14:30:00Z"
+    }
+  ]
+}
+```

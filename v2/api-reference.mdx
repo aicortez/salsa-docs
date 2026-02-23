@@ -3,6 +3,8 @@ title: "API Reference - v2.0"
 description: "Complete API documentation for v2.0 with GraphQL support"
 ---
 
+---
+
 # Salsa as a Service API v2.0
 
 The v2.0 API adds GraphQL support, enhanced webhooks, and new AI forecasting endpoints.
@@ -13,16 +15,18 @@ The v2.0 API adds GraphQL support, enhanced webhooks, and new AI forecasting end
 https://api.salsaasaservice.com/v2
 ```
 
-> **Note:**
+<Info>
 **New in v2.0**: GraphQL endpoint at `https://api.salsaasaservice.com/graphql`
+</Info>
 
 
 ## Authentication
 
 All API requests require authentication using your API key.
 
-> **Note:**
+<Callout icon="key" color="#FFC107">
 **API Key**: Get your API key from the [Developer Settings](https://app.salsaasaservice.com/settings/api) in your dashboard.
+</Callout>
 
 
 ### Authentication Header
@@ -49,284 +53,20 @@ X-RateLimit-Reset: 1640995200
 
 ## Core Endpoints
 
-
-**[Inventory Management](#inventory)**  
-Manage salsa ingredients, track stock levels, and monitor freshness.
-
-**[Recipe Management](#recipes)**  
-Create, update, and manage salsa recipes and production workflows.
-
-**[Production Tracking](#production)**  
-Track salsa production batches, quality metrics, and yield data.
-
-**[Analytics & Reporting](#analytics)**  
-Access detailed analytics and generate custom reports.
-
-
-
-## Inventory Management 
-
-### Get All Ingredients
-
-Retrieve a list of all ingredients in your inventory.
-
-```http
-GET /ingredients
-```
-
-**Response:**
-
-```json
-{
-  "data": [
-    {
-      "id": "ing_123",
-      "name": "Roma Tomatoes",
-      "category": "vegetables",
-      "current_stock": 25.5,
-      "unit": "lbs",
-      "supplier": "Fresh Farms Co.",
-      "last_updated": "2024-01-15T10:30:00Z",
-      "expiry_date": "2024-01-20T00:00:00Z",
-      "quality_score": 8.5
-    }
-  ],
-  "pagination": {
-    "page": 1,
-    "per_page": 50,
-    "total": 1
-  }
-}
-```
-
-### Update Ingredient Stock
-
-Update the stock level for a specific ingredient.
-
-```http
-PUT /ingredients/{ingredient_id}/stock
-```
-
-**Request Body:**
-
-```json
-{
-  "quantity": 30.0,
-  "unit": "lbs",
-  "notes": "New shipment received"
-}
-```
-
-**Response:**
-
-```json
-{
-  "id": "ing_123",
-  "name": "Roma Tomatoes",
-  "current_stock": 30.0,
-  "unit": "lbs",
-  "updated_at": "2024-01-15T11:00:00Z"
-}
-```
-
-### Add New Ingredient
-
-Add a new ingredient to your inventory.
-
-```http
-POST /ingredients
-```
-
-**Request Body:**
-
-```json
-{
-  "name": "Jalapeño Peppers",
-  "category": "vegetables",
-  "initial_stock": 5.0,
-  "unit": "lbs",
-  "supplier": "Spice Garden",
-  "expiry_date": "2024-01-25T00:00:00Z"
-}
-```
-
-## Recipe Management 
-
-### Get All Recipes
-
-Retrieve all salsa recipes in your account.
-
-```http
-GET /recipes
-```
-
-**Response:**
-
-```json
-{
-  "data": [
-    {
-      "id": "rec_456",
-      "name": "House Salsa",
-      "description": "Our signature medium-spice salsa",
-      "spice_level": "medium",
-      "batch_size": 5.0,
-      "yield": "gallons",
-      "prep_time": 30,
-      "ingredients": [
-        {
-          "ingredient_id": "ing_123",
-          "name": "Roma Tomatoes",
-          "quantity": 2.0,
-          "unit": "lbs"
-        }
-      ],
-      "created_at": "2024-01-10T09:00:00Z",
-      "updated_at": "2024-01-15T14:30:00Z"
-    }
-  ]
-}
-```
-
-### Create New Recipe
-
-Create a new salsa recipe.
-
-```http
-POST /recipes
-```
-
-**Request Body:**
-
-```json
-{
-  "name": "Spicy Chipotle Salsa",
-  "description": "Smoky and spicy chipotle-based salsa",
-  "spice_level": "hot",
-  "batch_size": 3.0,
-  "yield": "gallons",
-  "prep_time": 45,
-  "ingredients": [
-    {
-      "ingredient_id": "ing_789",
-      "quantity": 1.5,
-      "unit": "lbs"
-    }
-  ]
-}
-```
-
-### Update Recipe
-
-Update an existing recipe.
-
-```http
-PUT /recipes/{recipe_id}
-```
-
-## Production Tracking 
-
-### Start Production Batch
-
-Begin tracking a new salsa production batch.
-
-```http
-POST /production/batches
-```
-
-**Request Body:**
-
-```json
-{
-  "recipe_id": "rec_456",
-  "batch_number": "BATCH-2024-001",
-  "planned_quantity": 5.0,
-  "production_date": "2024-01-15T08:00:00Z",
-  "assigned_chef": "chef_123"
-}
-```
-
-**Response:**
-
-```json
-{
-  "id": "batch_789",
-  "recipe_id": "rec_456",
-  "batch_number": "BATCH-2024-001",
-  "status": "in_progress",
-  "started_at": "2024-01-15T08:00:00Z",
-  "assigned_chef": "chef_123"
-}
-```
-
-### Complete Production Batch
-
-Mark a production batch as completed with quality metrics.
-
-```http
-PUT /production/batches/{batch_id}/complete
-```
-
-**Request Body:**
-
-```json
-{
-  "actual_quantity": 4.8,
-  "quality_score": 9.2,
-  "notes": "Excellent batch, perfect consistency",
-  "completed_at": "2024-01-15T09:30:00Z"
-}
-```
-
-### Get Production History
-
-Retrieve production history with filtering options.
-
-```http
-GET /production/batches?start_date=2024-01-01&end_date=2024-01-31&recipe_id=rec_456
-```
-
-## Analytics & Reporting 
-
-### Get Production Analytics
-
-Retrieve analytics data for salsa production.
-
-```http
-GET /analytics/production?period=30d&recipe_id=rec_456
-```
-
-**Response:**
-
-```json
-{
-  "period": "30d",
-  "total_batches": 45,
-  "total_quantity": 225.0,
-  "average_quality_score": 8.7,
-  "waste_percentage": 2.3,
-  "top_performing_recipes": [
-    {
-      "recipe_id": "rec_456",
-      "name": "House Salsa",
-      "batches": 30,
-      "avg_quality": 9.1
-    }
-  ]
-}
-```
-
-### Get Inventory Analytics
-
-Get insights into inventory usage and optimization opportunities.
-
-```http
-GET /analytics/inventory?period=7d
-```
-
-## Error Handling
-
-The API uses standard HTTP status codes and returns detailed error information.
+<CardGroup cols={2}>
+  <Card title="Inventory Management" icon="tomato" href="/v2/api-reference#inventory">
+    Manage salsa ingredients, track stock levels, and monitor freshness.
+  </Card>
+  <Card title="Recipe Management" icon="hat-chef" href="/v2/api-reference#recipes">
+    Create, update, and manage salsa recipes and production workflows.
+  </Card>
+  <Card title="Production Tracking" icon="industry" href="/v2/api-reference#production">
+    Track salsa production batches, quality metrics, and yield data.
+  </Card>
+  <Card title="Analytics & Reporting" icon="analytics" href="/v2/api-reference#analytics">
+    Access detailed analytics and generate custom reports.
+  </Card>
+</CardGroup>
 
 ### Error Response Format
 
@@ -366,17 +106,17 @@ The API uses standard HTTP status codes and returns detailed error information.
 
 We provide official SDKs for popular programming languages:
 
-
-**[JavaScript/Node.js](https://github.com/salsaasaservice/salsa-js)**  
-Official SDK for JavaScript and Node.js applications.
-
-**[Python](https://github.com/salsaasaservice/salsa-python)**  
-Python SDK for data analysis and automation.
-
-**[PHP](https://github.com/salsaasaservice/salsa-php)**  
-PHP SDK for web applications and WordPress plugins.
-
-
+<CardGroup cols={3}>
+  <Card title="JavaScript/Node.js" icon="node-js" href="https://github.com/salsaasaservice/salsa-js">
+    Official SDK for JavaScript and Node.js applications.
+  </Card>
+  <Card title="Python" icon="python" href="https://github.com/salsaasaservice/salsa-python">
+    Python SDK for data analysis and automation.
+  </Card>
+  <Card title="PHP" icon="php" href="https://github.com/salsaasaservice/salsa-php">
+    PHP SDK for web applications and WordPress plugins.
+  </Card>
+</CardGroup>
 
 ## Webhooks
 
@@ -389,21 +129,7 @@ Configure webhooks to receive real-time notifications about important events.
 - `quality.alert` - When quality scores fall below acceptable levels
 - `inventory.expiry_warning` - When ingredients are approaching expiry
 
-### Webhook Configuration
 
-```http
-POST /webhooks
-```
-
-**Request Body:**
-
-```json
-{
-  "url": "https://your-app.com/webhooks/salsa",
-  "events": ["ingredient.low_stock", "production.batch_completed"],
-  "secret": "your_webhook_secret"
-}
-```
 
 ## Testing
 
@@ -414,8 +140,9 @@ Use our sandbox environment for testing your integrations:
 https://api-sandbox.salsaasaservice.com/v1
 ```
 
-> **Warning:**
+<Warning>
 **Sandbox Data**: The sandbox environment uses test data and doesn't affect your production account.
+</Warning>
 
 
 ## Support

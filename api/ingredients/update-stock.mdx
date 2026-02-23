@@ -1,0 +1,33 @@
+---
+title: "Update Ingredient Stock"
+description: "Update the stock level for a specific ingredient"
+api: "PUT /ingredients/{ingredient_id}/stock"
+deprecated: false
+version: "2.0"
+---
+
+```http
+PUT /ingredients/{ingredient_id}/stock
+```
+
+**Request Body:**
+
+```json
+{
+  "quantity": 30.0,
+  "unit": "lbs",
+  "notes": "New shipment received"
+}
+```
+
+**Response:**
+
+```json
+{
+  "id": "ing_123",
+  "name": "Roma Tomatoes",
+  "current_stock": 30.0,
+  "unit": "lbs",
+  "updated_at": "2024-01-15T11:00:00Z"
+}
+```

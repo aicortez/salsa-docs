@@ -1,0 +1,22 @@
+---
+title: "Complete Production Batch"
+description: "Mark a production batch as completed with quality metrics"
+api: "PUT /production/batches/{batch_id}/complete"
+deprecated: false
+version: "2.0"
+---
+
+```http
+PUT /production/batches/{batch_id}/complete
+```
+
+**Request Body:**
+
+```json
+{
+  "actual_quantity": 4.8,
+  "quality_score": 9.2,
+  "notes": "Excellent batch, perfect consistency",
+  "completed_at": "2024-01-15T09:30:00Z"
+}
+```
