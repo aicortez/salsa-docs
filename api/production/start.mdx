@@ -6,25 +6,52 @@ deprecated: false
 version: "2.0"
 ---
 
-```http
-POST /production/batches
-```
+## Headers
+<ParamField header="Authorization" type="string" placeholder="Bearer <token>" required>
+  Your API authentication token
+</ParamField>
 
-**Request Body:**
+## Request Body
 
-```json
-{
-  "recipe_id": "rec_456",
-  "batch_number": "BATCH-2024-001",
-  "planned_quantity": 5.0,
-  "production_date": "2024-01-15T08:00:00Z",
-  "assigned_chef": "chef_123"
-}
-```
+<ParamField body="recipe_id" type="string" required>
+  Unique identifier for the recipe
+</ParamField>
+<ParamField body="batch_number" type="string" required>
+  Batch number for the production run
+</ParamField>
+<ParamField body="planned_quantity" type="number" required>
+  Planned quantity to produce
+</ParamField>
+<ParamField body="production_date" type="string">
+  Production date in ISO 8601 format
+</ParamField>
+<ParamField body="assigned_chef" type="string">
+  Unique identifier for the assigned chef
+</ParamField>
 
-**Response:**
+## Response
 
-```json
+<ResponseField name="id" type="string">
+  Unique identifier for the batch
+</ResponseField>
+<ResponseField name="recipe_id" type="string">
+  Unique identifier for the recipe
+</ResponseField>
+<ResponseField name="batch_number" type="string">
+  Batch number for the production run
+</ResponseField>
+<ResponseField name="status" type="string">
+  Current status of the batch
+</ResponseField>
+<ResponseField name="started_at" type="string">
+  Timestamp when the batch started in ISO 8601 format
+</ResponseField>
+<ResponseField name="assigned_chef" type="string">
+  Unique identifier for the assigned chef
+</ResponseField>
+
+<ResponseExample>
+```json 200
 {
   "id": "batch_789",
   "recipe_id": "rec_456",
@@ -34,3 +61,4 @@ POST /production/batches
   "assigned_chef": "chef_123"
 }
 ```
+</ResponseExample>

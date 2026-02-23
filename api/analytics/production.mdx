@@ -5,6 +5,7 @@ api: "GET /analytics/production"
 deprecated: false
 version: "2.0"
 ---
+
 ## Headers
 <ParamField header="Authorization" type="string" placeholder="Bearer <token>" required>
   Your API authentication token
@@ -41,21 +42,18 @@ version: "2.0"
   Percentage of waste produced.
 </ResponseField>
 
-<ResponseField name="top_performing_recipes" type="object[]">
+<ResponseField name="top_performing_recipes" type="string[]">
   List of top performing recipes.
   <Expandable title="properties">
     <ResponseField name="recipe_id" type="string">
       Unique identifier for the recipe.
     </ResponseField>
-
     <ResponseField name="name" type="string">
       Name of the recipe.
     </ResponseField>
-
     <ResponseField name="batches" type="number">
       Number of batches for this recipe.
     </ResponseField>
-
     <ResponseField name="avg_quality" type="number">
       Average quality score for this recipe.
     </ResponseField>

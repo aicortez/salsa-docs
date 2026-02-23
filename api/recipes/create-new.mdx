@@ -6,30 +6,42 @@ deprecated: false
 version: "2.0"
 ---
 
-### Create New Recipe
+## Headers
+<ParamField header="Authorization" type="string" placeholder="Bearer <token>" required>
+  Your API authentication token
+</ParamField>
 
-Create a new salsa recipe.
+## Request Body
 
-```http
-POST /recipes
-```
-
-**Request Body:**
-
-```json
-{
-  "name": "Spicy Chipotle Salsa",
-  "description": "Smoky and spicy chipotle-based salsa",
-  "spice_level": "hot",
-  "batch_size": 3.0,
-  "yield": "gallons",
-  "prep_time": 45,
-  "ingredients": [
-    {
-      "ingredient_id": "ing_789",
-      "quantity": 1.5,
-      "unit": "lbs"
-    }
-  ]
-}
-```
+<ParamField body="name" type="string" required>
+  Name of the recipe
+</ParamField>
+<ParamField body="description" type="string">
+  Description of the recipe
+</ParamField>
+<ParamField body="spice_level" type="string">
+  Spice level of the recipe
+</ParamField>
+<ParamField body="batch_size" type="number" required>
+  Size of the batch
+</ParamField>
+<ParamField body="yield" type="string">
+  Unit of measurement for the yield
+</ParamField>
+<ParamField body="prep_time" type="number">
+  Preparation time in minutes
+</ParamField>
+<ParamField body="ingredients" type="array" required>
+  List of ingredients for the recipe
+  <Expandable title="child attributes">
+    <ParamField body="ingredient_id" type="string" required>
+      Unique identifier for the ingredient
+    </ParamField>
+    <ParamField body="quantity" type="number" required>
+      Quantity of the ingredient
+    </ParamField>
+    <ParamField body="unit" type="string">
+      Unit of measurement for the ingredient
+    </ParamField>
+  </Expandable>
+</ParamField>

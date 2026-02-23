@@ -6,6 +6,19 @@ deprecated: false
 version: "2.0"
 ---
 
-```http
-GET /production/batches?start_date=2024-01-01&end_date=2024-01-31&recipe_id=rec_456
-```
+## Headers
+<ParamField header="Authorization" type="string" placeholder="Bearer <token>" required>
+  Your API authentication token
+</ParamField>
+
+## Query Parameters
+
+<ParamField query="start_date" type="string" placeholder="2024-01-01">
+  Filter batches starting from this date (inclusive)
+</ParamField>
+<ParamField query="end_date" type="string" placeholder="2024-01-31">
+  Filter batches ending by this date (inclusive)
+</ParamField>
+<ParamField query="recipe_id" type="string" placeholder="rec_456">
+  Filter batches by recipe ID
+</ParamField>

@@ -6,23 +6,48 @@ deprecated: false
 version: "2.0"
 ---
 
-```http
-PUT /ingredients/{ingredient_id}/stock
-```
+## Headers
+<ParamField header="Authorization" type="string" placeholder="Bearer <token>" required>
+  Your API authentication token
+</ParamField>
 
-**Request Body:**
+## Path Parameters
+<ParamField path="ingredient_id" type="string" placeholder="ing_123" required>
+  Unique identifier for the ingredient
+</ParamField>
 
-```json
-{
-  "quantity": 30.0,
-  "unit": "lbs",
-  "notes": "New shipment received"
-}
-```
+## Request Body
 
-**Response:**
+<ParamField body="quantity" type="number" required>
+  Stock quantity to set
+</ParamField>
+<ParamField body="unit" type="string">
+  Unit of measurement for the stock
+</ParamField>
+<ParamField body="notes" type="string">
+  Notes about the stock update
+</ParamField>
 
-```json
+## Response
+
+<ResponseField name="id" type="string">
+  Unique identifier for the ingredient
+</ResponseField>
+<ResponseField name="name" type="string">
+  Name of the ingredient
+</ResponseField>
+<ResponseField name="current_stock" type="number">
+  Current stock quantity
+</ResponseField>
+<ResponseField name="unit" type="string">
+  Unit of measurement for the stock
+</ResponseField>
+<ResponseField name="updated_at" type="string">
+  Timestamp of the update in ISO 8601 format
+</ResponseField>
+
+<ResponseExample>
+```json 200
 {
   "id": "ing_123",
   "name": "Roma Tomatoes",
@@ -31,3 +56,4 @@ PUT /ingredients/{ingredient_id}/stock
   "updated_at": "2024-01-15T11:00:00Z"
 }
 ```
+</ResponseExample>

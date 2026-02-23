@@ -6,12 +6,34 @@ deprecated: false
 version: "2.0"
 ---
 
-```http
-PUT /production/batches/{batch_id}/complete
-```
+## Headers
+<ParamField header="Authorization" type="string" placeholder="Bearer <token>" required>
+  Your API authentication token
+</ParamField>
 
-**Request Body:**
+## Path Parameters
 
+<ParamField path="batch_id" name="batch_id" type="string" required>
+  The unique identifier of the production batch to be marked as completed.
+</ParamField>
+
+## Response
+
+<ResponseField name="actual_quantity" type="number">
+  The actual quantity produced in the batch.
+</ResponseField>
+<ResponseField name="quality_score" type="number">
+  The quality score assigned to the batch (e.g. 0-10).
+</ResponseField>
+<ResponseField name="notes" type="string">
+  Any additional notes about the batch.
+</ResponseField>
+<ResponseField name="completed_at" type="string">
+  The timestamp when the batch was marked as completed.
+</ResponseField>
+
+
+<ResponseExample>
 ```json
 {
   "actual_quantity": 4.8,
@@ -20,3 +42,4 @@ PUT /production/batches/{batch_id}/complete
   "completed_at": "2024-01-15T09:30:00Z"
 }
 ```
+</ResponseExample>

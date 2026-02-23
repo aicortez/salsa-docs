@@ -6,13 +6,65 @@ deprecated: false
 version: "2.0"
 ---
 
-```http
-GET /recipes
-```
+## Headers
+<ParamField header="Authorization" type="string" placeholder="Bearer <token>" required>
+  Your API authentication token
+</ParamField>
 
-**Response:**
+## Response
 
-```json
+<ResponseField name="data" type="array">
+  List of recipes
+  <Expandable title="child attributes">
+    <ResponseField name="id" type="string">
+      Unique identifier for the recipe
+    </ResponseField>
+    <ResponseField name="name" type="string">
+      Name of the recipe
+    </ResponseField>
+    <ResponseField name="description" type="string">
+      Description of the recipe
+    </ResponseField>
+    <ResponseField name="spice_level" type="string">
+      Spice level of the recipe
+    </ResponseField>
+    <ResponseField name="batch_size" type="number">
+      Size of the batch
+    </ResponseField>
+    <ResponseField name="yield" type="string">
+      Unit of measurement for the yield
+    </ResponseField>
+    <ResponseField name="prep_time" type="number">
+      Preparation time in minutes
+    </ResponseField>
+    <ResponseField name="ingredients" type="array">
+      List of ingredients for the recipe
+      <Expandable title="child attributes">
+        <ResponseField name="ingredient_id" type="string">
+          Unique identifier for the ingredient
+        </ResponseField>
+        <ResponseField name="name" type="string">
+          Name of the ingredient
+        </ResponseField>
+        <ResponseField name="quantity" type="number">
+          Quantity of the ingredient
+        </ResponseField>
+        <ResponseField name="unit" type="string">
+          Unit of measurement for the ingredient
+        </ResponseField>
+      </Expandable>
+    </ResponseField>
+    <ResponseField name="created_at" type="string">
+      Timestamp when the recipe was created in ISO 8601 format
+    </ResponseField>
+    <ResponseField name="updated_at" type="string">
+      Timestamp when the recipe was last updated in ISO 8601 format
+    </ResponseField>
+  </Expandable>
+</ResponseField>
+
+<ResponseExample>
+```json 200
 {
   "data": [
     {
@@ -37,3 +89,4 @@ GET /recipes
   ]
 }
 ```
+</ResponseExample>

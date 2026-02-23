@@ -1,15 +1,17 @@
 ---
 title: "Get Inventory Analytics"
 description: "Retrieve analytics data for salsa inventory management"
-openapi: "openapi.json GET /analytics/inventory"
+api: "GET /analytics/inventory"
 deprecated: false
 version: "2.0"
 ---
 
-```http
-GET /analytics/inventory?period=7d
-```
+## Headers
+<ParamField header="Authorization" type="string" placeholder="Bearer <token>" required>
+  Your API authentication token
+</ParamField>
 
-## Error Handling
-
-The API uses standard HTTP status codes and returns detailed error information.
+## Query Parameters
+<ParamField query="period" type="string" placeholder="7d">
+  Time period for analytics
+</ParamField>

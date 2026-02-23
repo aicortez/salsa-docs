@@ -6,19 +6,27 @@ deprecated: false
 version: "2.0"
 ---
 
-```http
-POST /ingredients
-```
+## Headers
+<ParamField header="Authorization" type="string" placeholder="Bearer <token>" required>
+  Your API authentication token
+</ParamField>
 
-**Request Body:**
-
-```json
-{
-  "name": "Jalapeño Peppers",
-  "category": "vegetables",
-  "initial_stock": 5.0,
-  "unit": "lbs",
-  "supplier": "Spice Garden",
-  "expiry_date": "2024-01-25T00:00:00Z"
-}
-```
+## Request Body
+<ParamField body="name" type="string" placeholder="Roma Tomatoes" required>
+  Name of the ingredient
+</ParamField>
+<ParamField body="category" type="string" placeholder="vegetables">
+  Category of the ingredient
+</ParamField>
+<ParamField body="initial_stock" type="number" placeholder="10.0">
+  Initial stock quantity
+</ParamField>
+<ParamField body="unit" type="string" placeholder="lbs">
+  Unit of measurement for the stock
+</ParamField>
+<ParamField body="supplier" type="string" placeholder="Fresh Farms">
+  Supplier of the ingredient
+</ParamField>
+<ParamField body="expiry_date" type="string" placeholder="2024-01-20T00:00:00Z">
+  Expiry date of the ingredient in ISO 8601 format
+</ParamField>

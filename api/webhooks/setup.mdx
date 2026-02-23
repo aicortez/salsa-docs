@@ -5,3 +5,39 @@ api: "POST /webhooks"
 deprecated: false
 version: "2.0"
 ---
+
+## Webhooks
+
+Configure webhooks to receive real-time notifications about important events.
+
+## Headers
+
+<ParamField header="Authorization" type="string" placeholder="Bearer <token>" required>
+    Your API authentication token
+</ParamField>
+
+## Request Body
+
+<ParamField body="url" type="string" required>
+    The URL to receive webhook events
+</ParamField>
+<ParamField body="events" type="string[]" required>
+    List of event types to subscribe to
+    <Expandable title="child attributes">
+        <ParamField body="ingredient.low_stock" type="string">
+            When ingredient stock falls below threshold
+        </ParamField>
+        <ParamField body="production.batch_completed" type="string">
+            When a production batch is completed
+        </ParamField>
+        <ParamField body="quality.alert" type="string">
+            When quality scores fall below acceptable levels
+        </ParamField>
+        <ParamField body="inventory.expiry_warning" type="string">
+            When ingredients are approaching expiry
+        </ParamField>
+    </Expandable>
+</ParamField>
+<ParamField body="secret" type="string" required>
+  Secret used to sign webhook payloads
+</ParamField>
