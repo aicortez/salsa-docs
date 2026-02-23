@@ -11,141 +11,137 @@ Salsa as a Service v2.0 seamlessly connects with your existing restaurant techno
 
 ## Integration Categories
 
-
-**[Point of Sale (POS)](#pos-systems)**  
-Connect with major POS platforms for real-time sales and inventory sync.
-
-**[Supply Chain](#supply-chain)**  
-Integrate with food distributors and suppliers for automated ordering.
-
-**[Kitchen Management](#kitchen-systems)**  
-Sync with KDS, recipe management, and kitchen automation systems.
-
-**[Enterprise Systems](#enterprise)**  
-Connect with ERP, accounting, and business intelligence platforms.
-
-**[Communication](#communication)**  
-Integrate with Slack, Teams, SMS, and other communication tools.
-
-**[IoT & Hardware](#iot-hardware)**  
-Connect sensors, scales, and smart kitchen equipment.
-
+<CardGroup cols={3}>
+  <Card icon="credit-card" title="Point of Sale (POS)" href="#pos-systems" arrow>
+    Connect with major POS platforms for real-time sales and inventory sync.
+  </Card>
+  <Card icon="truck" title="Supply Chain" href="#supply-chain" arrow>
+    Integrate with food distributors and suppliers for automated ordering.
+  </Card>
+  <Card icon="hat-chef" title="Kitchen Management" href="#kitchen-systems" arrow>
+    Sync with KDS, recipe management, and kitchen automation systems.
+  </Card>
+  <Card icon="building" title="Enterprise Systems" href="#enterprise" arrow>
+    Connect with ERP, accounting, and business intelligence platforms.
+  </Card>
+  <Card icon="message" title="Communication" href="#communication" arrow>
+    Integrate with Slack, Teams, SMS, and other communication tools.
+  </Card>
+  <Card icon="chart-network" title="IoT & Hardware" href="#iot-hardware" arrow>
+    Connect sensors, scales, and smart kitchen equipment.
+  </Card>
+</CardGroup>
 
 
 ## Point of Sale Systems
 
 ### Popular POS Integrations
 
-#### Square
+  <Accordion title="Square" href="#square">
+   **Integration Level**: ⭐⭐⭐⭐⭐ Native
 
-**Integration Level**: ⭐⭐⭐⭐⭐ Native
+   **Features:**
+   - Real-time sales sync (< 5 second delay)
+   - Bidirectional inventory updates
+   - Automatic menu mapping with AI
+   - Multi-location support
+   - Payment reconciliation
 
-**Features:**
-- Real-time sales sync (< 5 second delay)
-- Bidirectional inventory updates
-- Automatic menu mapping with AI
-- Multi-location support
-- Payment reconciliation
+   **Setup Time**: 5 minutes
 
-**Setup Time**: 5 minutes
+   **API Version**: Square v2 API
 
-**API Version**: Square v2 API
+   ```bash
+   # Quick setup via CLI
+   salsa integrations add square \
+   --oauth \
+   --locations all \
+   --sync realtime
+   ```
+  </Accordion>
+  <Accordion title="Toast" href="#toast">
+   **Integration Level**: ⭐⭐⭐⭐⭐ Native
 
-```bash
-# Quick setup via CLI
-salsa integrations add square \
-  --oauth \
-  --locations all \
-  --sync realtime
-```
+   **Features:**
+   - Real-time menu and inventory sync
+   - Complex menu structure support (modifiers, combos)
+   - Multi-location restaurant groups
+   - Labor integration
+   - Gift card and loyalty program sync
 
-#### Toast
+   **Setup Time**: 10 minutes
 
-**Integration Level**: ⭐⭐⭐⭐⭐ Native
+   **API Version**: Toast API v2
 
-**Features:**
-- Real-time menu and inventory sync
-- Complex menu structure support (modifiers, combos)
-- Multi-location restaurant groups
-- Labor integration
-- Gift card and loyalty program sync
+   ```javascript
+   // Setup via SDK
+   const salsa = new SalsaClient(apiKey);
 
-**Setup Time**: 10 minutes
+   await salsa.integrations.connect({
+   provider: 'toast',
+   credentials: {
+      clientId: process.env.TOAST_CLIENT_ID,
+      clientSecret: process.env.TOAST_CLIENT_SECRET,
+      restaurantGuid: process.env.TOAST_RESTAURANT_GUID
+   },
+   options: {
+      syncInterval: '5m',
+      includeLabor: true,
+      menuMapping: 'auto'
+   }
+   });
+   ```
+  </Accordion>
+  <Accordion title="Clover" href="#clover">
+   **Integration Level**: ⭐⭐⭐⭐⭐ Native
 
-**API Version**: Toast API v2
+   **Features:**
+   - Clover App Market integration
+   - Real-time inventory sync
+   - Order management
+   - Customer data sync
+   - Reporting integration
 
-```javascript
-// Setup via SDK
-const salsa = new SalsaClient(apiKey);
-
-await salsa.integrations.connect({
-  provider: 'toast',
-  credentials: {
-    clientId: process.env.TOAST_CLIENT_ID,
-    clientSecret: process.env.TOAST_CLIENT_SECRET,
-    restaurantGuid: process.env.TOAST_RESTAURANT_GUID
-  },
-  options: {
-    syncInterval: '5m',
-    includeLabor: true,
-    menuMapping: 'auto'
-  }
-});
-```
-
-#### Clover
-
-**Integration Level**: ⭐⭐⭐⭐⭐ Native
-
-**Features:**
-- Clover App Market integration
-- Real-time inventory sync
-- Order management
-- Customer data sync
-- Reporting integration
-
-**Setup Time**: 5 minutes
+   **Setup Time**: 5 minutes
 
 **Installation**: Available in Clover App Market. Search for "Salsa as a Service v2.0" in your Clover dashboard.
 
-#### Lightspeed
+  </Accordion>
+  <Accordion title="Lightspeed" href="#lightspeed">
+   **Integration Level**: ⭐⭐⭐⭐ Certified Partner
 
-**Integration Level**: ⭐⭐⭐⭐ Certified Partner
+   **Features:**
+   - Menu and inventory sync
+   - Sales reporting integration
+   - Multi-location support
+   - Customer data integration
 
-**Features:**
-- Menu and inventory sync
-- Sales reporting integration
-- Multi-location support
-- Customer data integration
-
-**Setup Time**: 15 minutes
+   **Setup Time**: 15 minutes
 
 **Compatibility**: Lightspeed Restaurant (formerly Upserve)
+  </Accordion>
+  <Accordion title="TouchBistro" href="#touchbistro">
+   **Integration Level**: ⭐⭐⭐⭐ Certified Partner
 
-#### TouchBistro
+   **Features:**
+   - Menu and inventory sync
+   - Tableside ordering integration
+   - Multi-location support
+   - Reservation integration
 
-**Integration Level**: ⭐⭐⭐⭐ Certified Partner
+   **Setup Time**: 15 minutes
+  </Accordion>
+  <Accordion title="Revel" href="#revel">
+   **Integration Level**: ⭐⭐⭐⭐ Certified Partner
 
-**Features:**
-- Menu and inventory sync
-- Tableside ordering integration
-- Multi-location support
-- Reservation integration
+   **Features:**
+   - Enterprise-grade integration
+   - Multi-location support
+   - Advanced reporting
+   - Inventory management sync
 
-**Setup Time**: 15 minutes
-
-#### Revel
-
-**Integration Level**: ⭐⭐⭐⭐ Certified Partner
-
-**Features:**
-- Enterprise-grade integration
-- Multi-location support
-- Advanced reporting
-- Inventory management sync
-
-**Setup Time**: 20 minutes
-
+   **Setup Time**: 20 minutes
+   </Accordion>
 
 
 ### Enterprise POS Systems
@@ -159,96 +155,85 @@ For large restaurant chains and enterprises:
 
 Automate ingredient ordering with direct distributor integrations:
 
-#### Sysco
+<Accordion title="Sysco">
+   **Integration Level**: ⭐⭐⭐⭐⭐ Native
 
-**Integration Level**: ⭐⭐⭐⭐⭐ Native
+   **Features:**
+   - Automated ordering based on AI forecasts
+   - Real-time inventory availability
+   - Pricing and catalog updates
+   - Order tracking and delivery notifications
+   - Invoice reconciliation
 
-**Features:**
-- Automated ordering based on AI forecasts
-- Real-time inventory availability
-- Pricing and catalog updates
-- Order tracking and delivery notifications
-- Invoice reconciliation
+   **Benefits:**
+   - 40% reduction in ordering time
+   - Optimal order quantities based on forecast
+   - Automatic price comparison
+   - Reduced stockouts by 60%
 
-**Benefits:**
-- 40% reduction in ordering time
-- Optimal order quantities based on forecast
-- Automatic price comparison
-- Reduced stockouts by 60%
+   ```python
+   # Example: Automated Sysco ordering
+   from salsa_sdk import SalsaClient
 
-```python
-# Example: Automated Sysco ordering
-from salsa_sdk import SalsaClient
+   client = SalsaClient(api_key="your_key")
 
-client = SalsaClient(api_key="your_key")
+   # Configure auto-ordering
+   sysco_config = client.suppliers.configure("sysco", {
+      "account_number": "123456789",
+      "delivery_window": "tue-thu",
+      "auto_order": True,
+      "approval_threshold": 500,  # Auto-approve under $500
+      "preferred_items": True  # Use cost-effective alternatives
+   })
 
-# Configure auto-ordering
-sysco_config = client.suppliers.configure("sysco", {
-    "account_number": "123456789",
-    "delivery_window": "tue-thu",
-    "auto_order": True,
-    "approval_threshold": 500,  # Auto-approve under $500
-    "preferred_items": True  # Use cost-effective alternatives
-})
+   # AI will automatically place orders based on forecasts
+   ```
+</Accordion>
+<Accordion title="US Foods">
+   **Integration Level**: ⭐⭐⭐⭐⭐ Native
 
-# AI will automatically place orders based on forecasts
-```
+   **Features:**
+   - Direct ordering through US Foods Connect
+   - Product catalog integration
+   - Pricing and availability
+   - Delivery scheduling
+   - Digital invoicing
 
-#### US Foods
+   **Setup**: Link your US Foods account in Settings > Integrations
+</Accordion>
+<Accordion title="Performance Food Group">
+   **Integration Level**: ⭐⭐⭐⭐ Certified Partner
 
-**Integration Level**: ⭐⭐⭐⭐⭐ Native
+   **Features:**
+   - PFG ordering system integration
+   - Multi-brand support (PFG Customized, Performance Foodservice)
+   - Real-time inventory checking
+   - Order history and analytics
 
-**Features:**
-- Direct ordering through US Foods Connect
-- Product catalog integration
-- Pricing and availability
-- Delivery scheduling
-- Digital invoicing
+   **Brands**: Performance Foodservice, Vistar, Roma, Reinhart
+</Accordion>
+<Accordion title="Gordon Food Service">
+   **Integration Level**: ⭐⭐⭐⭐ Certified Partner
 
-**Setup**: Link your US Foods account in Settings > Integrations
+   **Features:**
+   - GFS Direct ordering
+   - Product information and specs
+   - Delivery management
+   - Price updates
 
-#### Performance Food Group
+   **Regions**: US and Canada
+</Accordion>
+<Accordion title="Local Suppliers">
+   **Integration Level**: ⭐⭐⭐ Custom
 
-**Integration Level**: ⭐⭐⭐⭐ Certified Partner
+   **Features:**
+   - Custom supplier integration via API
+   - Email-based ordering
+   - Manual order creation with templates
+   - CSV import/export
 
-**Features:**
-- PFG ordering system integration
-- Multi-brand support (PFG Customized, Performance Foodservice)
-- Real-time inventory checking
-- Order history and analytics
-
-**Brands**: Performance Foodservice, Vistar, Roma, Reinhart
-
-#### Gordon Food Service
-
-**Integration Level**: ⭐⭐⭐⭐ Certified Partner
-
-**Features:**
-- GFS Direct ordering
-- Product information and specs
-- Delivery management
-- Price updates
-
-**Regions**: US and Canada
-
-#### Local Suppliers
-
-**Integration Level**: ⭐⭐⭐ Custom
-
-**Features:**
-- Custom supplier integration via API
-- Email-based ordering
-- Manual order creation with templates
-- CSV import/export
-
-**Setup**: Contact our integration team for custom supplier connections
-
-
-
-## Kitchen Management Systems
-
-
-
+   **Setup**: Contact our integration team for custom supplier connections
+</Accordion>
 
 ## Enterprise Systems
 
@@ -256,175 +241,188 @@ sysco_config = client.suppliers.configure("sysco", {
 
 Connect with enterprise resource planning systems:
 
-#### SAP
+<Accordion title="SAP">
 
-**SAP Products Supported:**
-- SAP Business One
-- SAP S/4HANA
-- SAP ECC
+   **SAP Products Supported:**
+   - SAP Business One
+   - SAP S/4HANA
+   - SAP ECC
 
-**Integration Points:**
-- Materials management (MM)
-- Financial accounting (FI)
-- Controlling (CO)
-- Production planning (PP)
+   **Integration Points:**
+   - Materials management (MM)
+   - Financial accounting (FI)
+   - Controlling (CO)
+   - Production planning (PP)
 
-**Data Flow:**
-```
-Salsa → SAP: Purchase orders, inventory movements, production data
-SAP → Salsa: Master data, cost centers, GL accounts, suppliers
-```
+   **Data Flow:**
+   ```
+   Salsa → SAP: Purchase orders, inventory movements, production data
+   SAP → Salsa: Master data, cost centers, GL accounts, suppliers
+   ```
 
-**Setup**: Enterprise customers receive dedicated SAP integration support
+   **Setup**: Enterprise customers receive dedicated SAP integration support
 
-#### Oracle
+</Accordion>
+<Accordion title="Oracle">
 
-**Oracle Products Supported:**
-- Oracle E-Business Suite
-- Oracle Cloud ERP
-- Oracle NetSuite
+   **Oracle Products Supported:**
+   - Oracle E-Business Suite
+   - Oracle Cloud ERP
+   - Oracle NetSuite
 
-**Integration Points:**
-- Supply chain management
-- Financial management
-- Procurement
-- Inventory management
+   **Integration Points:**
+   - Supply chain management
+   - Financial management
+   - Procurement
+   - Inventory management
 
-**API**: REST and SOAP APIs supported
+   **API**: REST and SOAP APIs supported
 
-#### Microsoft Dynamics
+</Accordion>
+<Accordion title="Microsoft Dynamics">
 
-**Dynamics Products Supported:**
-- Dynamics 365 Finance
-- Dynamics 365 Supply Chain Management
-- Dynamics 365 Business Central
+   **Dynamics Products Supported:**
+   - Dynamics 365 Finance
+   - Dynamics 365 Supply Chain Management
+   - Dynamics 365 Business Central
 
-**Integration**: Native Azure AD integration with SSO support
+   **Integration**: Native Azure AD integration with SSO support
 
-
-
-### Accounting Software
-
-
-
+</Accordion>
 
 ## Communication & Notifications
 
 ### Team Communication
 
-#### Slack
+<Accordion title="Slack">
 
-**Features:**
-- Real-time alerts and notifications
-- Production updates
-- Quality alerts
-- Inventory warnings
-- Custom channel routing
+   **Features:**
+   - Real-time alerts and notifications
+   - Production updates
+   - Quality alerts
+   - Inventory warnings
+   - Custom channel routing
 
-**Bot Commands:**
-```
-/salsa forecast          # View today's forecast
-/salsa inventory [item]  # Check stock levels
-/salsa production        # Current production status
-/salsa quality           # Recent quality scores
-```
+   **Bot Commands:**
+   ```
+   /salsa forecast          # View today's forecast
+   /salsa inventory [item]  # Check stock levels
+   /salsa production        # Current production status
+   /salsa quality           # Recent quality scores
+   ```
 
-**Setup**: Add the Salsa bot from Slack App Directory
+   **Setup**: Add the Salsa bot from Slack App Directory
 
-#### Microsoft Teams
+</Accordion>
+<Accordion title="Microsoft Teams">
 
-**Features:**
-- Teams channel integration
-- Adaptive cards for rich notifications
-- Bot commands and interactions
-- File sharing (reports, exports)
+   **Features:**
+   - Teams channel integration
+   - Adaptive cards for rich notifications
+   - Bot commands and interactions
+   - File sharing (reports, exports)
 
-**Integration**: Available in Microsoft Teams App Store
+   **Integration**: Available in Microsoft Teams App Store
 
-#### SMS & Voice
+</Accordion>
+<Accordion title="SMS & Voice">
 
-**Providers:**
-- Twilio
-- AWS SNS
-- Custom SMS gateway
+   **Providers:**
+   - Twilio
+   - AWS SNS
+   - Custom SMS gateway
 
-**Use Cases:**
-- Critical alerts (temperature violations)
-- Delivery notifications
-- Approval requests
-- Emergency notifications
+   **Use Cases:**
+   - Critical alerts (temperature violations)
+   - Delivery notifications
+   - Approval requests
+   - Emergency notifications
 
-**Setup**: Configure in Settings > Notifications > SMS
+   **Setup**: Configure in Settings > Notifications > SMS
 
-
+</Accordion>
 
 ## IoT & Hardware Integration
 
 ### Certified Hardware Partners
 
+<Accordion title="Temperature Sensors">
 
+   **Partners**: TempSense, IoTTemp, SmartTemp
+
+   **Features:**
+   - Real-time temperature monitoring
+   - Automated alerts for violations
+   - Data logging and analytics
+   - Integration with production and quality data
+
+   **Setup**: Connect sensors through our IoT Hub integration
+
+</Accordion>
 
 
 ## Business Intelligence & Analytics
 
-#### Tableau
+<Accordion title="Tableau">
 
-**Integration Type:** Native Connector
+   **Integration Type**: Native Connector
 
-**Features:**
-- Direct connection to Salsa data warehouse
-- Pre-built dashboard templates
-- Real-time data refresh
-- Custom metrics and dimensions
+   **Features:**
+   - Direct connection to Salsa data warehouse
+   - Pre-built dashboard templates
+   - Real-time data refresh
+   - Custom metrics and dimensions
 
-**Data Available:**
-- Production metrics
-- Inventory analytics
-- Quality trends
-- Cost analysis
-- Forecast accuracy
+   **Data Available:**
+   - Production metrics
+   - Inventory analytics
+   - Quality trends
+   - Cost analysis
+   - Forecast accuracy
 
-#### Power BI
+</Accordion>
+<Accordion title="Power BI">
 
-**Integration Type:** Native Connector
+   **Integration Type**: Native Connector
 
-**Features:**
-- Power BI Desktop and Service support
-- Scheduled refresh
-- Row-level security
-- Custom visuals
+   **Features:**
+   - Power BI Desktop and Service support
+   - Scheduled refresh
+   - Row-level security
+   - Custom visuals
 
-**Install:** Search "Salsa as a Service" in Power BI connectors
+   **Install**: Search "Salsa as a Service" in Power BI connectors
 
-#### Looker
+</Accordion>
+<Accordion title="Looker">
 
-**Integration Type:** LookML Models
+   **Integration Type**: LookML Models
 
-**Features:**
-- Pre-built LookML models
-- Embedded analytics
-- Custom explores
-- API integration
+   **Features:**
+   - Pre-built LookML models
+   - Embedded analytics
+   - Custom explores
+   - API integration
 
-**Contact:** Enterprise customers receive LookML support
+   **Contact**: Enterprise customers receive LookML support
 
-
+</Accordion>
 
 ## Custom Integrations
 
 ### Integration Methods
 
-
-**[REST API](/v2/api-reference)**  
-Traditional REST endpoints for broad compatibility.
-
-**[GraphQL API](/v2/api-reference#graphql)**  
-Flexible queries and real-time subscriptions.
-
-**[Webhooks](/v2/api-reference#webhooks)**  
-Real-time event notifications to your systems.
-
-
+<CardGroup cols={3}>
+  <Card icon="code" title="REST API" href="/v2/api-reference#rest" arrow>
+    Traditional REST endpoints for broad compatibility.
+  </Card>
+  <Card icon="code-branch" title="GraphQL API" href="/v2/api-reference#graphql" arrow>
+    Flexible queries and real-time subscriptions.
+  </Card>
+  <Card icon="webhook" title="Webhooks" href="/v2/api-reference#webhooks" arrow>
+    Real-time event notifications to your systems.
+  </Card>
+</CardGroup>
 
 ### Integration Development
 
@@ -458,14 +456,14 @@ Build custom integrations with our tools:
 
 ## Integration Support
 
-
-**[Documentation](/v2/api-reference)**  
-Comprehensive API docs and integration guides.
-
-**[Developer Portal](https://developers.salsaasaservice.com)**  
-Interactive API explorer and testing tools.
-
-
+<CardGroup cols={2}>
+  <Card icon="book-open" title="Documentation" href="/v2/api-reference" arrow>
+    Comprehensive API docs and integration guides.
+  </Card>
+  <Card icon="code" title="Developer Portal" href="https://developers.salsaasaservice.com" arrow>
+    Interactive API explorer and testing tools.
+  </Card>
+</CardGroup>
 
 ### Support Channels
 
@@ -474,8 +472,9 @@ Interactive API explorer and testing tools.
 - 📚 **Knowledge Base**: Browse integration tutorials
 - 🎥 **Video Guides**: Step-by-step integration walkthroughs
 
-> **Note:**
+<Note>
 **Enterprise Integration Support**: Enterprise customers receive dedicated integration engineers and priority support.
+</Note>
 
 
 ## Request New Integrations
@@ -497,7 +496,7 @@ Don't see your system listed? We're constantly adding new integrations.
 
 
 
-> **Note:**
+<Info>
 **Most Requested Integrations (Coming Soon):**
 - DoorDash Drive
 - Uber Eats Manager
@@ -506,3 +505,4 @@ Don't see your system listed? We're constantly adding new integrations.
 - OpenTable
 - 7shifts scheduling
 - HotSchedules
+</Info>

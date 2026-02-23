@@ -27,6 +27,8 @@ Real-time metrics enhanced with AI predictions:
 
 AI-powered intelligent alerting:
 
+<CodeGroup dropdown>
+
 ```javascript
 // Example: Configure AI-powered alerts
 const alert = await salsa.ai.analytics.createSmartAlert({
@@ -36,6 +38,27 @@ const alert = await salsa.ai.analytics.createSmartAlert({
   actions: ["notify_manager", "create_ticket"]
 });
 ```
+
+```python
+# Example: Configure AI-powered alerts
+alert = salsa.ai.analytics.create_smart_alert(
+    type="anomaly_detection",
+    metric="production_efficiency",
+    sensitivity="medium",
+    actions=["notify_manager", "create_ticket"]
+)
+```
+
+```php
+// Example: Configure AI-powered alerts
+$alert = $salsa->ai->analytics->createSmartAlert([
+    'type' => 'anomaly_detection',
+    'metric' => 'production_efficiency',
+    'sensitivity' => 'medium',
+    'actions' => ['notify_manager', 'create_ticket']
+]);
+```
+</CodeGroup>
 
 ## Advanced Analytics
 
@@ -68,6 +91,37 @@ AI-powered demand predictions:
 - External factor integration (weather, events)
 - Seasonal pattern recognition
 
+<CodeGroup dropdown>
+
+```javascript
+// Example: Get AI demand forecast
+const forecast = await salsa.ai.analytics.getAIForecast({
+  location: "loc_123",
+  days: 14
+});
+console.log(`Predicted demand for next 14 days: ${forecast.predictions}`);
+```
+
+```python
+# Example: Get AI demand forecast
+forecast = salsa.ai.analytics.get_ai_forecast(
+    location="loc_123",
+    days=14
+)
+print(f"Predicted demand for next 14 days: {forecast.predictions}")
+```
+
+```php
+// Example: Get AI demand forecast
+$forecast = $salsa->ai->analytics->getAIForecast([
+    'location' => 'loc_123',
+    'days' => 14
+]);
+echo "Predicted demand for next 14 days: " . $forecast->predictions;
+```
+</CodeGroup>
+
+<CodeGroup>
 ```graphql
 # Example: GraphQL query for AI forecast
 query GetAIForecast {
@@ -88,6 +142,7 @@ query GetAIForecast {
   }
 }
 ```
+</CodeGroup>
 
 ### Cost Optimization
 
@@ -144,18 +199,20 @@ Real-time operational monitoring:
 
 Intelligent report generation:
 
-
-1. **Ask in Natural Language**
-   Describe the report you want in plain English.
-
-2. **AI Generates Report**
-   AI selects optimal metrics, visualizations, and filters.
-
-3. **Review & Refine**
-   Adjust AI-generated report to your preferences.
-
-4. **Automate & Share**
-   Schedule delivery with AI-generated insights included.
+<Steps>
+  <Step title="Ask in Natural Language">
+  Describe the report you want in plain English.
+  </Step>
+  <Step title="AI Generates Report">
+  AI selects optimal metrics, visualizations, and filters.
+  </Step>
+  <Step title="Review & Refine">
+  Adjust AI-generated report to your preferences.
+  </Step>
+  <Step title="Automate & Share">
+  Schedule delivery with AI-generated insights included.
+  </Step>
+</Steps>
 
 
 
@@ -208,8 +265,9 @@ Receive daily AI-generated insights:
 - Performance highlights
 - Actionable recommendations
 
-> **Note:**
-**New in v2.0**: AI analyzes all your data overnight and delivers a personalized daily briefing with the most important insights and recommended actions.
+<Note>
+<Badge color="green">New in v2.0</Badge> AI analyzes all your data overnight and delivers a personalized daily briefing with the most important insights and recommended actions.
+</Note>
 
 
 ### Continuous Learning

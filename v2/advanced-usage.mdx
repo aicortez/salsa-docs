@@ -18,15 +18,19 @@ v2.0's AI forecasting engine uses multiple machine learning models to predict sa
 
 ### Configuring Advanced Forecasting
 
+<Steps>
+<Step title="Select Forecast Horizon">
+  Choose your forecasting window based on your operational needs:
+  - **Short-term (7 days)**: Daily production planning
+  - **Medium-term (14 days)**: Ingredient ordering and staffing
+  - **Long-term (30+ days)**: Strategic planning and seasonal prep
+  </Step>
 
-1. **Select Forecast Horizon**
-   Choose your forecasting window based on your operational needs:
-    - **Short-term (7 days)**: Daily production planning
-    - **Medium-term (14 days)**: Ingredient ordering and staffing
-    - **Long-term (30+ days)**: Strategic planning and seasonal prep
-
-2. **Configure Data Sources**
+<Step title="Configure Data Sources">
    Connect additional data sources to improve accuracy:
+
+   <CodeGroup dropdown>
+
     ```javascript
     const forecastConfig = {
       data_sources: {
@@ -46,19 +50,62 @@ v2.0's AI forecasting engine uses multiple machine learning models to predict sa
     };
     ```
 
-3. **Set Alert Thresholds**
+    ```python
+    forecast_config = {
+    "data_sources": {
+        "pos_sales": True,
+        "reservations": True,
+        "weather_api": "openweathermap",
+        "events": ["eventbrite", "local_calendar"],
+        "foot_traffic": "sensor_data",
+        "social_media": ["yelp", "google_reviews"]
+    },
+    "model_parameters": {
+        "confidence_level": 0.95,
+        "seasonality": "auto_detect",
+        "trend_sensitivity": "medium",
+        "anomaly_detection": True
+    }
+    }
+    ```
+
+    ```php
+    $forecastConfig = [
+    'data_sources' => [
+        'pos_sales' => true,
+        'reservations' => true,
+        'weather_api' => 'openweathermap',
+        'events' => ['eventbrite', 'local_calendar'],
+        'foot_traffic' => 'sensor_data',
+        'social_media' => ['yelp', 'google_reviews']
+    ],
+    'model_parameters' => [
+        'confidence_level' => 0.95,
+        'seasonality' => 'auto_detect',
+        'trend_sensitivity' => 'medium',
+        'anomaly_detection' => true
+    ]
+    ];
+    ```
+
+    </CodeGroup>
+</Step>
+<Step title="Set Alert Thresholds">
    Configure alerts for significant forecast changes or anomalies.
-
-4. **Enable Auto-Actions**
+</Step>
+<Step title="Enable Auto-Actions">
    Let AI automatically adjust production schedules based on forecasts.
-
+</Step>
+</Steps>
 
 
 ### Interpreting Forecast Results
 
 The AI provides rich forecast data with confidence intervals:
 
-```json
+<CodeGroup>
+
+```json Response
 {
   "forecast_date": "2024-01-20",
   "predicted_demand": {
@@ -83,6 +130,8 @@ The AI provides rich forecast data with confidence intervals:
   }
 }
 ```
+
+</CodeGroup>
 
 ### Forecast Accuracy Tracking
 
@@ -117,7 +166,11 @@ The AI automatically:
 ## IoT Sensor Integration
 
 ### Sensor Types and Capabilities
-
+Integrate a wide range of sensors for comprehensive monitoring:
+- **Temperature Sensors**: Monitor salsa storage conditions
+- **RFID Tags**: Track ingredient usage and inventory movement
+- **Vibration Sensors**: Detect equipment performance issues
+- **Humidity Sensors**: Ensure optimal storage environments
 
 
 
@@ -125,9 +178,32 @@ The AI automatically:
 
 Access comprehensive sensor data in real-time:
 
-> **Note:**
+<Note>
 **Dashboard Features**: Live sensor feeds, historical trends, anomaly alerts, predictive maintenance warnings, and automated reports.
+</Note>
 
+<CodeGroup dropdown>
+
+```javascript
+// Example: Query sensor data via API
+const salsa = new SalsaClient({ apiKey: "your_api_key" });
+// Get real-time sensor readings
+const sensors = await salsa.iot.getSensors({ location: "kitchen_1" });
+sensors.forEach(sensor => {
+  const reading = sensor.getLatestReading();
+  console.log(`${sensor.name}: ${reading.value} ${reading.unit}`);
+  if (reading.isAnomaly()) {
+    console.log(`⚠️  Alert: ${reading.anomalyDetails}`);
+  }
+});
+// Query historical data
+const history = await salsa.iot.queryHistory({
+  sensor_id: "temp_sensor_001",
+  start_date: "2024-01-01",
+  end_date: "2024-01-31",
+  aggregation: "hourly"
+});
+```
 
 ```python
 # Example: Query sensor data via API
@@ -152,6 +228,29 @@ history = client.iot.query_history(
     aggregation="hourly"
 )
 ```
+
+```php
+// Example: Query sensor data via API
+$salsa = new SalsaClient(['apiKey' => 'your_api_key']);
+// Get real-time sensor readings
+$sensors = $salsa->iot->getSensors(['location' => 'kitchen_1']);
+foreach ($sensors as $sensor) {
+    $reading = $sensor->getLatestReading();
+    echo "{$sensor->name}: {$reading->value} {$reading->unit}\n";
+    if ($reading->isAnomaly()) {
+        echo "⚠️  Alert: {$reading->anomalyDetails}\n";
+    }
+}
+// Query historical data
+$history = $salsa->iot->queryHistory([
+    'sensor_id' => 'temp_sensor_001',
+    'start_date' => '2024-01-01',
+    'end_date' => '2024-01-31',
+    'aggregation' => 'hourly'
+]);
+```
+
+</CodeGroup>
 
 ### Predictive Maintenance
 
@@ -185,6 +284,8 @@ Let AI manage your ingredient inventory automatically:
 
 #### Configuration
 
+<CodeGroup dropdown>
+
 ```javascript
     const autoOrderConfig = {
       enabled: true,
@@ -205,7 +306,52 @@ Let AI manage your ingredient inventory automatically:
         approvers: ["manager@restaurant.com"]
       }
     };
-    ```
+```
+
+```python
+    auto_order_config = {
+    "enabled": True,
+    "suppliers": ["sysco", "us_foods"],
+    "rules": {
+    "reorder_trigger": "forecast_based",  # or "threshold_based"
+    "lead_time_buffer": 2,  # days
+    "safety_stock_level": 1.5,  # multiplier
+    "max_order_frequency": "daily",
+    "budget_constraints": {
+    "monthly_max": 50000,
+    "per_order_max": 5000
+    }
+    },
+    "approval_workflow": {
+    "auto_approve_under": 1000,
+    "require_approval_over": 1000,
+    "approvers": ["manager@restaurant.com"]
+    }
+    }
+```
+
+```php
+    $autoOrderConfig = [
+    'enabled' => true,
+    'suppliers' => ['sysco', 'us_foods'],
+    'rules' => [
+        'reorder_trigger' => 'forecast_based',  // or 'threshold_based'
+        'lead_time_buffer' => 2,  // days
+        'safety_stock_level' => 1.5,  // multiplier
+        'max_order_frequency' => 'daily',
+        'budget_constraints' => [
+            'monthly_max' => 50000,
+            'per_order_max' => 5000
+        ]
+    ],
+    'approval_workflow' => [
+        'auto_approve_under' => 1000,
+        'require_approval_over' => 1000,
+        'approvers' => ['manager@restaurant.com']
+    ]
+];
+```
+</CodeGroup>
 
 #### Order Logic
 
@@ -241,31 +387,33 @@ AI optimizes production schedules for maximum efficiency:
 
 Create custom automation workflows with our visual workflow builder:
 
-
-1. **Choose Trigger**
-   Select what initiates the workflow:
-    - Time-based (schedule)
-    - Event-based (low stock, quality alert)
-    - Forecast-based (predicted demand spike)
-    - Manual trigger
-
-2. **Define Conditions**
+<Steps>
+<Step title="Choose Trigger">
+  Select what initiates the workflow:
+  - Time-based (schedule)
+  - Event-based (low stock, quality alert)
+  - Forecast-based (predicted demand spike)
+  - Manual trigger
+</Step>
+<Step title="Define Conditions">
    Set conditions that must be met:
-    - Inventory levels
-    - Staff availability
-    - Equipment status
-    - Budget constraints
-
-3. **Configure Actions**
+   - Inventory levels
+   - Staff availability
+   - Equipment status
+   - Budget constraints
+</Step>
+<Step title="Configure Actions">
    Choose automated actions:
-    - Create production batches
-    - Send notifications
-    - Order ingredients
-    - Update schedules
-    - Generate reports
-
-4. **Set Approvals**
+   - Create production batches
+   - Send notifications
+   - Order ingredients
+   - Update schedules
+   - Generate reports
+</Step>
+<Step title="Set Approvals">
    Optional: require human approval before executing certain actions.
+</Step>
+</Steps>
 
 
 
@@ -274,7 +422,6 @@ Create custom automation workflows with our visual workflow builder:
 ### Multi-Location Management
 
 Manage restaurant chains of any size with centralized control:
-
 
 #### Centralized Dashboard
 
@@ -310,7 +457,7 @@ Manage restaurant chains of any size with centralized control:
 
 Fine-grained permission management for enterprise security:
 
-```yaml
+```yaml permissions.yaml
 # Example: Custom role definition
 role_name: "Regional Quality Manager"
 permissions:
@@ -415,7 +562,7 @@ Enhanced webhook system with:
     - Signature verification
     - Delivery status tracking
 
-    ```javascript
+    ```javascript Response
     // Webhook payload example
     {
       "event": "quality.alert.created",
@@ -513,6 +660,6 @@ Advanced features require advanced support:
 - 🎓 **Training Programs**: On-site and virtual training for your team
 - 📞 **24/7 Support**: Enterprise support available around the clock
 
-> **Note:**
+<Note>
 **Enterprise Support**: All advanced features include priority support with 1-hour response SLA for critical issues.
-
+</Note>
