@@ -55,10 +55,11 @@
                     ]
                   },
                   {
-                    "group": "Task Explanation",
+                    "group": "Tasks Explanation",
                     "icon": "head-side-brain",
                     "pages": [
-                      "task1"
+                      "task1",
+                      "task2"
                     ]
                   }
                 ]

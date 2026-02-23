@@ -1,13 +1,13 @@
 ---
-title: "Get All Ingredients"
+title: "Get Ingredients"
 description: "Retrieve a list of all ingredients in your inventory."
 api: "GET /ingredients"
-deprecated: false
 version: "2.0"
 ---
 
 ## Headers
-<ParamField header="Authorization" type="string" placeholder="Bearer <token>" required>
+
+<ParamField header="Authorization" type="string" required placeholder="Bearer <token>">
   Your API authentication token
 </ParamField>
 
@@ -15,6 +15,7 @@ version: "2.0"
 
 <ResponseField name="data" type="array">
   List of ingredients
+
   <Expandable title="child attributes">
     <ResponseField name="id" type="string">
       Unique identifier for the ingredient
@@ -48,6 +49,7 @@ version: "2.0"
 
 <ResponseField name="pagination" type="object">
   Pagination details
+
   <Expandable title="child attributes">
     <ResponseField name="page" type="number">
       Current page number
@@ -62,6 +64,7 @@ version: "2.0"
 </ResponseField>
 
 <ResponseExample>
+
 ```json 200
 {
   "data": [
@@ -84,4 +87,5 @@ version: "2.0"
   }
 }
 ```
+
 </ResponseExample>

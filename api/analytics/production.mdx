@@ -1,13 +1,13 @@
 ---
-title: "Get Production Analytics"
+title: "Production Analytics"
 description: "Retrieve analytics data for salsa production"
 api: "GET /analytics/production"
-deprecated: false
 version: "2.0"
 ---
 
 ## Headers
-<ParamField header="Authorization" type="string" placeholder="Bearer <token>" required>
+
+<ParamField header="Authorization" type="string" required placeholder="Bearer <token>">
   Your API authentication token
 </ParamField>
 
@@ -16,6 +16,7 @@ version: "2.0"
 <ParamField query="period" type="string" placeholder="7d">
   Time period for analytics
 </ParamField>
+
 <ParamField query="recipe_id" type="string" placeholder="rec_456">
   Filter analytics for a specific recipe ID
 </ParamField>
@@ -44,6 +45,7 @@ version: "2.0"
 
 <ResponseField name="top_performing_recipes" type="string[]">
   List of top performing recipes.
+
   <Expandable title="properties">
     <ResponseField name="recipe_id" type="string">
       Unique identifier for the recipe.
@@ -61,6 +63,7 @@ version: "2.0"
 </ResponseField>
 
 <ResponseExample>
+
 ```json 200
 {
   "period": "30d",
@@ -78,4 +81,5 @@ version: "2.0"
   ]
 }
 ```
+
 </ResponseExample>

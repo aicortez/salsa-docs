@@ -1,17 +1,18 @@
 ---
-title: "Get Inventory Analytics"
+title: "Inventory Analytics"
 description: "Retrieve analytics data for salsa inventory management"
 api: "GET /analytics/inventory"
-deprecated: false
 version: "2.0"
 ---
 
 ## Headers
-<ParamField header="Authorization" type="string" placeholder="Bearer <token>" required>
+
+<ParamField header="Authorization" type="string" required placeholder="Bearer <token>">
   Your API authentication token
 </ParamField>
 
 ## Query Parameters
+
 <ParamField query="period" type="string" placeholder="7d">
   Time period for analytics
 </ParamField>

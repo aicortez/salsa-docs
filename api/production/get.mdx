@@ -1,13 +1,13 @@
 ---
-title: "Get Production History"
+title: "Production History"
 description: "Retrieve production history with filtering options"
 api: "GET /production/batches"
-deprecated: false
 version: "2.0"
 ---
 
 ## Headers
-<ParamField header="Authorization" type="string" placeholder="Bearer <token>" required>
+
+<ParamField header="Authorization" type="string" required placeholder="Bearer <token>">
   Your API authentication token
 </ParamField>
 
@@ -16,9 +16,11 @@ version: "2.0"
 <ParamField query="start_date" type="string" placeholder="2024-01-01">
   Filter batches starting from this date (inclusive)
 </ParamField>
+
 <ParamField query="end_date" type="string" placeholder="2024-01-31">
   Filter batches ending by this date (inclusive)
 </ParamField>
+
 <ParamField query="recipe_id" type="string" placeholder="rec_456">
   Filter batches by recipe ID
 </ParamField>
