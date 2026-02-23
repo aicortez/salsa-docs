@@ -16,3 +16,23 @@ version: "2.0"
 <ParamField query="period" type="string" placeholder="7d">
   Time period for analytics
 </ParamField>
+
+<ResponseExample>
+```json
+{
+  "total_ingredients": 50,
+  "low_stock_ingredients": 5,
+  "average_freshness": 85.0,
+  "stock_trends": [
+    {
+      "date": "2024-01-01",
+      "stock_level": 100
+    },
+    {
+      "date": "2024-01-02",
+      "stock_level": 90
+    }
+  ]
+}
+```
+</ResponseExample>

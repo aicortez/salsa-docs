@@ -14,3 +14,29 @@ version: "2.0"
 <ParamField path="recipe_id" type="string" placeholder="rec_123" required>
   Unique identifier for the recipe to be updated
 </ParamField>
+
+<ResponseExample>
+```json
+{
+  "id": "rec_123",
+  "name": "Updated Salsa Recipe",
+  "description": "An updated description of the salsa recipe.",
+  "spice_level": "medium",
+  "batch_size": 150.0,
+  "yield": "lbs",
+  "prep_time": 45,
+  "ingredients": [
+    {
+      "ingredient_id": "ing_456",
+      "quantity": 20.0,
+      "unit": "lbs"
+    },
+    {
+      "ingredient_id": "ing_789",
+      "quantity": 10.0,
+      "unit": "lbs"
+    }
+  ]
+}
+```
+</ResponseExample>

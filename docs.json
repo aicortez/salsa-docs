@@ -3,9 +3,9 @@
   "theme": "maple",
   "name": "Salsa as a Service",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#A82424",
+    "light": "#D97706",
+    "dark": "#451A03"
   },
   "favicon": "/favicon.svg",
   "api": {
@@ -69,8 +69,10 @@
                 "groups": [
                   {
                     "group": "API Reference",
+                    "icon": "code",
                     "pages": [
-                      "v2/api-reference"
+                      "v2/api-reference",
+                      "v2/error"
                     ]
                   },
                   {
