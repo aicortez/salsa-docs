@@ -31,27 +31,27 @@
                     "group": "Getting Started",
                     "icon": "rocket-launch",
                     "pages": [
-                      "v2/index",
-                      "v2/getting-started",
-                      "v2/pricing"
+                      "index",
+                      "getting-started",
+                      "pricing"
                     ]
                   },
                   {
                     "group": "Guides",
                     "icon": "book-open",
                     "pages": [
-                      "v2/advanced-usage",
-                      "v2/integrations",
-                      "v2/troubleshooting"
+                      "advanced-usage",
+                      "integrations",
+                      "troubleshooting"
                     ]
                   },
                   {
                     "group": "Core Features",
                     "icon": "check-double",
                     "pages": [
-                      "v2/inventory",
-                      "v2/quality",
-                      "v2/analytics"
+                      "inventory",
+                      "quality",
+                      "analytics"
                     ]
                   },
                   {
@@ -71,8 +71,8 @@
                     "group": "API Reference",
                     "icon": "code",
                     "pages": [
-                      "v2/api-reference",
-                      "v2/error"
+                      "api-reference",
+                      "error"
                     ]
                   },
                   {
@@ -122,7 +122,7 @@
               {
                 "tab": "Changelog",
                 "pages": [
-                  "v2/changelog"
+                  "changelog"
                 ]
               }
             ]
@@ -192,25 +192,25 @@
                   {
                     "group": "Prise en main",
                     "pages": [
-                      "fr/v2/index",
-                      "fr/v2/getting-started",
-                      "fr/v2/pricing",
-                      "fr/v2/troubleshooting"
+                      "fr/index",
+                      "fr/getting-started",
+                      "fr/pricing",
+                      "fr/troubleshooting"
                     ]
                   },
                   {
                     "group": "Guides",
                     "pages": [
-                      "fr/v2/advanced-usage",
-                      "fr/v2/integrations"
+                      "fr/advanced-usage",
+                      "fr/integrations"
                     ]
                   },
                   {
                     "group": "Fonctionnalités clés",
                     "pages": [
-                      "fr/v2/inventory",
-                      "fr/v2/quality",
-                      "fr/v2/analytics"
+                      "fr/inventory",
+                      "fr/quality",
+                      "fr/analytics"
                     ]
                   },
                   {
@@ -224,13 +224,13 @@
               {
                 "tab": "Référence API",
                 "pages": [
-                  "fr/v2/api-reference"
+                  "fr/api-reference"
                 ]
               },
               {
                 "tab": "Journal des modifications",
                 "pages": [
-                  "fr/v2/changelog"
+                  "fr/changelog"
                 ]
               }
             ]
