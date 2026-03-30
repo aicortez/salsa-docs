@@ -16,6 +16,9 @@
       }
     }
   },
+  "styling": {
+    "codeblocks": "dark"
+  },
   "navigation": {
     "languages": [
       {
