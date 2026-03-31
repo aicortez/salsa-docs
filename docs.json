@@ -19,6 +19,13 @@
   "styling": {
     "codeblocks": "dark"
   },
+  "errors": {
+    "404": {
+      "redirect": false,
+      "title": "Page not found",
+      "description": "Some API reference content has moved as part of the API date-based version release. If you're looking for API reference articles, check out the [latest API reference overview](/api-reference/latest/overview)."
+    }
+  },
   "navigation": {
     "languages": [
       {
