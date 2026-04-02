@@ -34,10 +34,10 @@
           {
             "version": "v2.0",
             "tabs": [
-                    {
+              {
                 "tab": "OpenAPI",
                 "openapi": [
-                  "api-reference/openapi.yaml"
+                  "/openapi.json"
                 ]
               },
               {
