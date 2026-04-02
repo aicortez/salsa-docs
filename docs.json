@@ -34,12 +34,6 @@
           {
             "version": "v2.0",
             "tabs": [
-                    {
-                "tab": "OpenAPI",
-                "openapi": [
-                  "openapi.json"
-                ]
-              },
               {
                 "tab": "Home",
                 "groups": [
@@ -133,6 +127,12 @@
                       "api/webhooks/setup"
                     ]
                   }
+                ]
+              },
+              {
+                "tab": "OpenAPI",
+                "openapi": [
+                  "openapi.json"
                 ]
               },
               {
