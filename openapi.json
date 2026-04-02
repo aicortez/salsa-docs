@@ -96,7 +96,7 @@
         }
       }
     },
-    "/plants/{id}": {
+    "/v2/plants/{id}": {
       "delete": {
         "description": "Deletes a single plant based on the ID supplied",
         "parameters": [
