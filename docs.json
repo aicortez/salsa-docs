@@ -37,7 +37,7 @@
                     {
                 "tab": "OpenAPI",
                 "openapi": [
-                  "api-reference/openapi.yaml"
+                  "openapi.json"
                 ]
               },
               {
