@@ -5,6 +5,10 @@ api: "GET /ingredients"
 version: "2.0"
 ---
 
+<Frame>
+  ![Test](img/test.jpeg)
+</Frame>
+
 ## Headers
 
 <ParamField header="Authorization" type="string" required placeholder="Bearer <token>">
@@ -20,27 +24,35 @@ version: "2.0"
     <ResponseField name="id" type="string">
       Unique identifier for the ingredient
     </ResponseField>
+
     <ResponseField name="name" type="string">
       Name of the ingredient
     </ResponseField>
+
     <ResponseField name="category" type="string">
       Category of the ingredient
     </ResponseField>
+
     <ResponseField name="current_stock" type="number">
       Current stock quantity
     </ResponseField>
+
     <ResponseField name="unit" type="string">
       Unit of measurement for the stock
     </ResponseField>
+
     <ResponseField name="supplier" type="string">
       Supplier of the ingredient
     </ResponseField>
+
     <ResponseField name="last_updated" type="string">
       Timestamp of the last update in ISO 8601 format
     </ResponseField>
+
     <ResponseField name="expiry_date" type="string">
       Expiry date of the ingredient in ISO 8601 format
     </ResponseField>
+
     <ResponseField name="quality_score" type="number">
       Quality score of the ingredient
     </ResponseField>
@@ -54,9 +66,11 @@ version: "2.0"
     <ResponseField name="page" type="number">
       Current page number
     </ResponseField>
+
     <ResponseField name="per_page" type="number">
       Number of results per page
     </ResponseField>
+
     <ResponseField name="total" type="number">
       Total number of results
     </ResponseField>
