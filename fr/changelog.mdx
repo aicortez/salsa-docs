@@ -7,9 +7,28 @@ description: "Dernières mises à jour et améliorations de Salsa as a Service v
 
 Restez informé des dernières fonctionnalités, améliorations et corrections dans Salsa as a Service v2.0.
 
-> **Note:**
-**Version actuelle** : v2.5.0 | **Date de sortie** : 15 mars 2024
+<Note>
+**Version actuelle** : v2.5.1 | **Date de sortie** : 16 avril 2026
+</Note>
 
+<Update label="2026-04-16" description="2.5.1">
+
+## Version 2.5.1 - 16 avril 2026
+
+### 🏗️ Infrastructure
+
+#### Configuration monorepo sous-chemin
+- Ajout d'un sous-répertoire `docs/` avec un site de documentation Mintlify dédié pour les guides développeurs internes
+- Inclut des guides de démarrage, des références de personnalisation, des guides de rédaction de contenu et des pages d'intégration d'outils IA
+- Configuré avec son propre `docs.json`, navigation et endpoints de référence API
+
+### 🐛 Corrections de bugs
+
+- **Spécification OpenAPI** : Correction du préfixe de chemin v2 incohérent sur l'endpoint de suppression — `/plants/{id}` est maintenant correctement `/v2/plants/{id}` pour correspondre à tous les autres endpoints
+
+</Update>
+
+<Update label="2024-03-15" description="2.5.0">
 
 ## Version 2.5.0 - 15 mars 2024
 
@@ -47,6 +66,8 @@ Restez informé des dernières fonctionnalités, améliorations et corrections d
 - Résolution de fuite de mémoire d'abonnement GraphQL
 - Correction de gestion des fuseaux horaires dans calculs de prévision
 - Correction du formatage d'export CSV pour formats de nombres internationaux
+
+</Update>
 
 ---
 

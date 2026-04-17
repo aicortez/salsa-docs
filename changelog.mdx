@@ -4,13 +4,28 @@ description: "Latest updates and improvements to Salsa as a Service v2.0"
 rss: "true"
 ---
 
----
-
 Stay up to date with the latest features, improvements, and bug fixes in Salsa as a Service v2.0.
 
 <Note>
-**Current Version**: v2.5.0 | **Release Date**: March 15, 2024
+**Current Version**: v2.5.1 | **Release Date**: April 16, 2026
 </Note>
+
+<Update label="2026-04-16" description="2.5.1">
+
+## Version 2.5.1 - April 16, 2026
+
+### 🏗️ Infrastructure
+
+#### Monorepo subpath setup
+- Added a `docs/` subdirectory with a dedicated Mintlify documentation site for internal developer guides
+- Includes getting started guides, customization references, writing content guides, and AI tools integration pages
+- Configured with its own `docs.json`, navigation, and API reference endpoints
+
+### 🐛 Bug fixes
+
+- **OpenAPI spec**: Fixed inconsistent v2 path prefix on the delete endpoint — `/plants/{id}` is now correctly `/v2/plants/{id}` to match all other endpoints
+
+</Update>
 
 <Update label="2024-03-15" description="2.5.0">
 
