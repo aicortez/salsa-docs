@@ -17,7 +17,8 @@
     }
   },
   "styling": {
-    "codeblocks": "dark"
+    "codeblocks": "dark",
+    "latex": true
   },
   "errors": {
     "404": {
